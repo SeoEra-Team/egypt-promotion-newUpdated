@@ -52,6 +52,37 @@ class NovaServiceProvider extends NovaApplicationServiceProvider
                 new Panel(__('Mail Settings'), FieldsHelper::mailSettings())
             ], [], __('Mail Settings'));
 
+            NovaSettings::addSettingsFields([
+                new Panel(__('wishlist'), FieldsHelper::wishlist()),
+            ], [], __('wishlist'));
+
+            NovaSettings::addSettingsFields([
+                new Panel(__('thank you page'), FieldsHelper::thankYouPage()),
+            ], [], __('thank you page'));
+
+            NovaSettings::addSettingsFields([
+                new Panel(__('About'), FieldsHelper::about()),
+            ], [], __('About'));
+
+            NovaSettings::addSettingsFields([
+                new Panel(__('Travel Style'), FieldsHelper::travelStyle()),
+            ], [], __('Travel Style'));
+
+            NovaSettings::addSettingsFields([
+                new Panel(__('Page tailor'), FieldsHelper::pageTailor()),
+            ], [], __('Page tailor'));
+
+            NovaSettings::addSettingsFields([
+                new Panel(__('contact us'), FieldsHelper::contactus()),
+            ], [], __('contact us'));
+            NovaSettings::addSettingsFields([
+                new Panel(__('special offers'), FieldsHelper::specialOffers()),
+            ], [], __('Special offers'));
+            NovaSettings::addSettingsFields([
+                new Panel(__('Article Categories'), FieldsHelper::articleCategories()),
+            ], [], __('Article Categories'));
+
+        
             Nova::serving(function (ServingNova $event) {
                 app()->setLocale('en');
             });

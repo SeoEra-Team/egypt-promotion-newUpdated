@@ -1,41 +1,37 @@
 <?php
 
-use App\Http\Controllers\Blog\BlogController;
-use App\Http\Controllers\Cart\CartController;
-use App\Http\Controllers\DirectPaymentController;
-use App\Http\Controllers\FormController;
-use App\Http\Controllers\Home\IndexController;
-use App\Http\Controllers\page\PageController;
-use App\Http\Controllers\Tour\TourController;
-use App\Http\Controllers\TravelStyle\TravelStyleController;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Route;
-use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 
-Route::post('switchCurrency', [IndexController::class, 'switchCurrency'])->name('currency.switch');
-Route::get('add-favorite/{id}', [IndexController::class, 'addFavorite'])->name('favorite.add');
-Route::get('remove-favorite/{id}', [IndexController::class, 'removeFavorite'])->name('favorite.remove');
-Route::get('/fetch-meta', [IndexController::class, 'fetchMeta'])->name('fetch-meta');
-Route::get('wishlist', [IndexController::class, 'wishlist'])->name('wishlist.index');
-Route::get('about/{slug}', [IndexController::class, 'about'])->name('about.index');
-Route::get('/manifest.json', function () {
-    return response()->view('layout.partials.manifest')
-        ->header('Content-Type', 'application/json');
+/*
+|--------------------------------------------------------------------------
+| Web Routes
+|--------------------------------------------------------------------------
+|
+| Here is where you can register web routes for your application. These
+| routes are loaded by the RouteServiceProvider within a group which
+| contains the "web" middleware group. Now create something great!
+|
+*/
+
+Route::get('/', function () {
+    $tours = DB::table('tours_old')
+        ->select('category_id', DB::raw('GROUP_CONCAT(DISTINCT dest_id) as dest_ids'))
+        ->groupBy('category_id')
+        ->get();
+
+    foreach ($tours as $tour) {
+        $category_id = $tour->category_id;
+        $dest_ids = explode(',', $tour->dest_ids); // Split the comma-separated string into an array
+
+        // Process each category_id and its dest_ids
+        echo "Category ID: $category_id\n";
+        echo "Destination IDs: " . implode(', ', $dest_ids) . "\n";
+
+        // Loop through individual dest_ids if needed
+        foreach ($dest_ids as $dest_id) {
+            echo "Processing Destination ID: $dest_id for Category ID: $category_id\n";
+            // Add your logic here (e.g., fetch data for each dest_id)
+        }
+    }
 });
-try {
-    foreach (json_decode(nova_get_setting('redirect')) as $redirect) {
-        Route::permanentRedirect($redirect->from, $redirect->to);
-    }
-} catch (Exception $e) {
-}
-
-Route::group(
-    [
-        'prefix' => LaravelLocalization::setLocale(),
-        'middleware' => ['localeSessionRedirect', 'localizationRedirect', 'localeViewPath']
-    ],
-    function () {
-        Route::get('/', [IndexController::class, 'index'])->name('home');
-
-        
-    }
-);
