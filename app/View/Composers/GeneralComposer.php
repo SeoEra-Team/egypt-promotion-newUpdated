@@ -23,14 +23,45 @@ class GeneralComposer
             ->select(['id', 'name', 'code', 'symbol'])
             ->where('status', true)
             ->get();
-        
-        $data['homeServiceItems'] = nova_get_setting('home_service_items', []);
+
         $data['socialMedia'] = nova_get_setting('social_media', []);
-        $data['headercategories'] = Category::where('status', true)->where('header', true)->with('children')->get();
-        $data['footerCategories'] = Category::where('status', true)->where('footer', true)->with('children')->take(2)->get();
-        $data['wishlistPage']     = Page::where('type', 'wishlist')->first();
-        $data['travelStyles']      = TravelStyle::where('status', true)->get();
-        // dd($data['wishlistPage']);
+        $data['headercategories'] = Category::where('status', true)
+            ->where('header', 1)
+            ->where(function ($query) {
+                $query->where('type', '!=', 'dahabiya')
+                    ->orWhereNull('type');
+            })
+            ->lang()
+            ->with(['children' => function ($query) {
+                $query->where('status', true);
+                $query->where('header', true);
+                $query->lang();
+            }])
+            ->take(3)
+            ->get();
+        // dd($data['headercategories']);
+        $data['footerCategories'] = Category::where('status', true)
+            ->where('footer', true)
+            ->with(['children' => function ($query) {
+                $query->where('status', true);
+                $query->where('footer', true);
+                $query->take(5);
+            }])
+            ->take(2)
+            ->get();
+        $data['DahabiyaCategories'] = Category::where('status', true)
+            ->where('type', 'dahabiya')
+            ->with(['children' => function ($query) {
+                $query->where('status', true);
+                $query->where('dahabiya', true);
+                $query->lang();
+                $query->first();
+                $query->with(['tours' => function ($query) {
+                    $query->where('status', true);
+                    $query->lang();
+                }]);
+            }])->first();
+            // dd($data['DahabiyaCategories']->children->first()->tours);
         $view->with($data);
     }
 }

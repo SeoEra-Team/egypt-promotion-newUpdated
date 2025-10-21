@@ -12,6 +12,7 @@ class MediaHelper
     const ARTICLE_CATEGORY_BANNER_MEDIA_PATH = 'article-category-banner';
     const CATEGORY_MEDIA_PATH = 'category';
     const CATEGORY_BANNER_MEDIA_PATH = 'category-banner';
+    const CATEGORY_ICON_MEDIA_PATH = 'category-icon';
     const DESTINATION_MEDIA_PATH = 'destination';
     const DESTINATION_BANNER_MEDIA_PATH = 'destination-banner';
     const TRAVEL_STYLE_MEDIA_PATH = 'travel-style';

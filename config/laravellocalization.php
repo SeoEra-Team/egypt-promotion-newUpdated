@@ -1,9 +1,9 @@
 <?php return [
   'supportedLocales' => [
     'en' => [
-      'name' => 'English',
+      'name' => 'en',
       'script' => 'Latn',
-      'native' => 'English',
+      'native' => 'en',
       'regional' => 'en_GB',
     ],
     'it' => [

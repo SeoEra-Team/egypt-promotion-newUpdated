@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use App\Helpers\Constants\MediaHelper;
+use App\Helpers\Traits\CheckLang;
 use App\Helpers\Traits\CheckSlug;
 use App\Helpers\Traits\DefaultImage;
 use Dyrynda\Database\Support\CascadeSoftDeletes;
@@ -21,7 +22,7 @@ use Spatie\Translatable\HasTranslations;
 
 class SubCategory extends Model implements HasMedia, Sortable
 {
-    use HasFactory, CheckSlug, InteractsWithMedia, SortableTrait, HasTranslations, SoftDeletes, CascadeSoftDeletes, DefaultImage;
+    use HasFactory, CheckSlug,CheckLang ,InteractsWithMedia, SortableTrait, HasTranslations, SoftDeletes, CascadeSoftDeletes, DefaultImage;
 
     protected $translatable = ['name', 'menu_title', 'heading', 'short_description', 'description',
         'meta_title',  'slug', 'meta_keywords', 'meta_description'];

@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use App\Helpers\Constants\MediaHelper;
+use App\Helpers\Traits\CheckLang;
 use App\Helpers\Traits\CheckSlug;
 use App\Helpers\Traits\DefaultImage;
 use Dyrynda\Database\Support\CascadeSoftDeletes;
@@ -24,7 +25,7 @@ use Spatie\EloquentSortable\SortableTrait;
  */
 class Tour extends Model implements HasMedia, Sortable
 {
-    use HasFactory,CheckSlug ,InteractsWithMedia, SortableTrait, SoftDeletes, HasTranslations, SoftDeletes, CascadeSoftDeletes, DefaultImage;
+    use HasFactory,CheckSlug,CheckLang ,InteractsWithMedia, SortableTrait, SoftDeletes, HasTranslations, SoftDeletes, CascadeSoftDeletes, DefaultImage;
 
     protected $translatable = 
     [

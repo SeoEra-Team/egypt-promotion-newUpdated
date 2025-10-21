@@ -1,6 +1,6 @@
 <?php return [
   'locales' => [
-    'en' => 'English',
+    'en' => 'en',
     'it' => 'it',
   ],
   'prioritize_nova_locale' => true,

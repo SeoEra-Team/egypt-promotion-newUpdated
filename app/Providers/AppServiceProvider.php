@@ -34,23 +34,11 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        Paginator::defaultView('vendor.pagination.custom');
-        View()->composer('*', function ($view) {
-            $favoriteToursIds = session('favorite_tours', []);
-            $view->with('favoriteToursIds', $favoriteToursIds);
-        });
+       
         try {
             Currency::setDefault();
-            
             view()->composer('layout.master', GeneralComposer::class);
-            view()->composer('home.partials.sub_category_section', subCategoryComposer::class);
-            view()->composer('home.partials.first_tour_section', FirstTourComposer::class);
-            view()->composer('home.partials.second_tour_section', SecondTourComposer::class);
-            view()->composer('home.partials.third_tour_section', ThirdTourComposer::class);
-            view()->composer('home.partials.blog_section', BlogComposer::class);
-            view()->composer('home.partials.testimonial_section', TestimonialComposer::class);
-            view()->composer('layout.partials.faqs', FAQComposer::class);
-            view()->composer('layout.partials.partners', PartenerComposer::class);
+            
             
         } catch (\Exception $exception) {
         }

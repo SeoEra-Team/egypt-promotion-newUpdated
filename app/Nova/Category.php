@@ -24,7 +24,7 @@ use Whitecube\NovaFlexibleContent\Flexible;
 
 class Category extends Resource
 {
-    // use HasSortableRows;
+    use HasSortableRows;
 
     /**
      * The model the resource corresponds to.

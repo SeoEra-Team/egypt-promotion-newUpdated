@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use App\Helpers\Constants\MediaHelper;
+use App\Helpers\Traits\CheckLang;
 use App\Helpers\Traits\CheckSlug;
 use App\Helpers\Traits\DefaultImage;
 use Dyrynda\Database\Support\CascadeSoftDeletes;
@@ -20,10 +21,17 @@ use Spatie\MediaLibrary\MediaCollections\Models\Media;
 use Spatie\Translatable\HasTranslations;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
-
+use Illuminate\Database\Eloquent\Builder;
 class Category extends Model implements HasMedia
 {
-    use HasFactory, CheckSlug,  InteractsWithMedia, HasTranslations, SoftDeletes, CascadeSoftDeletes, DefaultImage;
+    use HasFactory, CheckSlug, CheckLang, InteractsWithMedia, HasTranslations, SoftDeletes, CascadeSoftDeletes, DefaultImage;
+
+    // protected static function booted()
+    // {        
+    //     static::addGlobalScope('active', function (Builder $builder) {
+    //         $builder->whereNotNull('name->' . app()->getLocale());
+    //     });
+    // }
 
     protected $translatable = [
         'name',
