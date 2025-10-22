@@ -61,9 +61,9 @@
                             <img loading="lazy" src="{{ asset('assets/images/envlope.svg') }}" alt="Email icon">
                             <span>{{ nova_get_setting('site_email') }}</span>
                         </a>
-                        <a href="tel:+{{ nova_get_setting('site_phone') }}" itemprop="telephone">
+                        <a href="tel:{{ nova_get_setting('site_phone') }}" itemprop="telephone">
                             <img loading="lazy" src="{{ asset('assets/images/phone (1).svg') }}" alt="Phone icon">
-                            <span> +{{ nova_get_setting('site_phone') }}</span>
+                            <span> {{ nova_get_setting('site_phone') }}</span>
                         </a>
                         <a href="https://maps.app.goo.gl/oeDh6e2Daxtzt9fR8" itemprop="telephone">
                             <img loading="lazy" src="{{ asset('assets/images/location.svg') }}" alt="Phone icon">

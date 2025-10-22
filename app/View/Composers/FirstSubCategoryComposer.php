@@ -22,6 +22,7 @@ class FirstSubCategoryComposer
             ->lang()
             ->take(9)
             ->get();
+        // dd($data['subCategories']);
         $view->with($data);
     }
 }
