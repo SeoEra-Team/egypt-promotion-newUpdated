@@ -98,6 +98,13 @@ class SubCategory extends Resource
                 ->trueValue(true)->falseValue(false)
                 ->editableIndex(),
 
+            Toggle::make(__('First'), 'first')
+                ->trueValue(true)->falseValue(false)
+                ->editableIndex(),
+            Toggle::make(__('Second'), 'second')
+                ->trueValue(true)->falseValue(false)
+                ->editableIndex(),
+
 
             new Panel(__('SEO'), FieldsHelper::seoFields('sub_categories')),
 

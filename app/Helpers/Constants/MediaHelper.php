@@ -33,6 +33,7 @@ class MediaHelper
     const TOUR_INCLUSION_MEDIA_PATH = 'tour-inclusion';
     const TOUR_EXCLUSION_MEDIA_PATH = 'tour-exclusion';
     const TOUR_GALLERY_MEDIA_PATH = 'tour-gallery';
+    const TOUR_SUBIMG_MEDIA_PATH = 'tour-sub-img';
     const TOUR_MAP_MEDIA_PATH = 'tour-map';
     const SLIDER_MEDIA_PATH = 'slider';
     const PARTNER_MEDIA_PATH = 'partner';

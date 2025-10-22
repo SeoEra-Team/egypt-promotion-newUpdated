@@ -18,8 +18,12 @@ class FirstTourComposer
     public function compose(View $view)
     {
         $data = [];
-        $data['firstTours'] = Tour::where('status', true)->where('first', true)->get();
-        
+        $data['firstTours'] = Tour::where('status', true)
+        ->where('first', true)
+        ->lang()
+        ->take(6)
+        ->get();
+        // dd($data['firstTours']);
         $view->with($data);
     }
 }

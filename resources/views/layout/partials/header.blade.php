@@ -104,10 +104,10 @@
                         <div class="logo-header  logo-dark">
                             <div itemscope itemtype="http://schema.org/Organization">
                                 <a href="{{ route('home') }}">
-                                    <img loading="lazy" class="d-block logo-top" src="./assets/images/logo.png"
-                                        alt="TourVista-Logo">
-                                    <img loading="lazy" class="d-none logo-scroll" src="./assets/images/logo.png"
-                                        alt="TourVista-Logo">
+                                    <img loading="lazy" class="d-block logo-top"
+                                        src="{{ Storage::url(nova_get_setting('logo')) }}" alt="TourVista-Logo">
+                                    <img loading="lazy" class="d-none logo-scroll"
+                                        src="{{ Storage::url(nova_get_setting('logo')) }}" alt="TourVista-Logo">
                                 </a>
                             </div>
 
@@ -138,7 +138,8 @@
                                                 @foreach ($headercategory->children as $subCategory)
                                                     <li>
                                                         <a href="#">
-                                                            <img src="{{ $subCategory->getFirstMediaUrlOrDefault(MediaHelper::SUB_CATEGORY_SUBIMG_MEDIA_PATH, 'webp')['url'] }}">
+                                                            <img
+                                                                src="{{ $subCategory->getFirstMediaUrlOrDefault(MediaHelper::SUB_CATEGORY_SUBIMG_MEDIA_PATH, 'webp')['url'] }}">
                                                             {{ $subCategory->name }}
                                                         </a>
                                                     </li>
@@ -150,7 +151,7 @@
                                     </li>
                                 @endforeach
 
-                                @if ($DahabiyaCategories)
+                                {{-- @if ($DahabiyaCategories)
                                     <li>
                                         <a href="./SubCategory.html">
                                             <span>
@@ -165,10 +166,10 @@
                                             <!-- right links -->
 
                                             <ul class=" deals-links">
-                                                @foreach ($DahabiyaCategories->children->first()->tours as $tour)
+                                                @foreach ($DahabiyaCategories->children->first()->tours ?? [] as $tour)
                                                     <li>
-                                                        <a href="./Tour.html">
-                                                            <img src="./assets/images/icon.(3).svg">
+                                                        <a href="">
+                                                            <img src="{{ $tour->getFirstMediaUrlOrDefault(MediaHelper::TOUR_SUBIMG_MEDIA_PATH, 'webp')['url'] }}">
                                                             {{ $tour->name }}
                                                         </a>
                                                     </li>
@@ -178,10 +179,10 @@
 
                                         </div>
                                     </li>
-                                @endif
+                                @endif --}}
 
                                 <li>
-                                    <span> Pages <i class="fa fa-chevron-down"></i> </span>
+                                    <span> {{ __('navbar.pages') }} <i class="fa fa-chevron-down"></i> </span>
                                     <div class="sub-menu deals-dropdown">
                                         <!-- left info -->
 
@@ -194,22 +195,22 @@
 
                                                     <li><a href="./freepage.html">
                                                             <img src="./assets/images/tag.png">
-                                                            Tags
+                                                            {{ __('navbar.Tags') }}
                                                         </a>
                                                     </li>
                                                     <li><a href="./freepage.html"> <img
                                                                 src="./assets/images/Testimonials.svg">
-                                                            About Us
+                                                            {{ __('navbar.about_us') }}
                                                         </a>
                                                     </li>
                                                     <li><a href="./freepage.html"> <img
                                                                 src="./assets/images/Terms and Conditions.svg">
-                                                            Terms & Condition
+                                                            {{ __('navbar.terms_condition') }}
                                                         </a>
                                                     </li>
                                                     <li><a href="./freepage.html"> <img
                                                                 src="./assets/images/schedule.webp">
-                                                            Payment & Cancelation Policy
+                                                            {{ __('navbar.payment_cancelation_policy') }}
                                                         </a>
                                                     </li>
 
@@ -222,14 +223,14 @@
                                                         <a href="./freepage.html">
                                                             <img src="./assets/images/icon09 (1).svg">
 
-                                                            our Mission
+                                                            {{ __('navbar.our_mission') }}
                                                         </a>
                                                     </li>
                                                     <li>
                                                         <a href="./freepage.html">
                                                             <img src="./assets/images/purpose.png">
 
-                                                            Policy and privacy
+                                                            {{ __('navbar.policy_privacy') }}
                                                         </a>
                                                     </li>
 
@@ -237,7 +238,7 @@
                                                         <a href="./article_Category.html">
                                                             <img src="./assets/images/Blogs2.svg">
 
-                                                            Blog
+                                                            {{ __('navbar.blogs') }}
                                                         </a>
                                                     </li>
 
@@ -245,7 +246,7 @@
                                                         <a href="./contact-us.html">
                                                             <img src="./assets/images/communicate.png">
 
-                                                            Contact Us
+                                                            {{ __('navbar.contact_us') }}
                                                         </a>
                                                     </li>
                                                 </ul>
@@ -286,7 +287,7 @@
                             <div class="extra-nav  d-none d-sm-block">
                                 <a href="tailorMade.html" class="theme-btn"><i class="fa-solid fa-arrow-right"></i>
 
-                                    Plan Your Trip
+                                    {{ __('navbar.plan_your_trip') }}
                                 </a>
 
                             </div>
@@ -314,124 +315,39 @@
         <div class="inner-side">
             <div class="menu-mobile">
                 <a class="mobile-logo" href="{{ route('home') }}">
-                    <img src="./assets/images/logo.png" alt="logo">
+                    <img src="{{ Storage::url(nova_get_setting('logo')) }}" alt="logo">
                 </a>
                 <ul id="mobile-main-menu" class="mobile nav-menu">
                     <li class="mobile nav-item">
-                        <a href="{{ route('home') }}" class="nav-link">Home</a>
+                        <a href="{{ route('home') }}" class="nav-link">{{ __('navbar.home') }}</a>
                     </li>
+                    @foreach ($headercategories as $headercategory)
+                        <li class="nav-item mobile has-dropdown">
+                            <a href="./SubCategory.html" class="nav-link">
+                                {{ $headercategory->name }}
+                                <span class="icon-down icon-down-one">
+                                    <i class="fas fa-angle-down"></i>
+                                </span>
+                            </a>
 
-                    <li class="nav-item mobile has-dropdown">
-                        <a href="./SubCategory.html" class="nav-link">
-                            Day Tours
-                            <span class="icon-down icon-down-one">
-                                <i class="fas fa-angle-down"></i>
-                            </span>
-                        </a>
+                            <ul class="mobile sub-menu">
+                                @foreach ($headercategory->children as $subCategory)
+                                    <li>
+                                        <a href="./Tour.html"> 
+                                            <img src="{{ $subCategory->getFirstMediaUrlOrDefault(MediaHelper::SUB_CATEGORY_SUBIMG_MEDIA_PATH, 'webp')['url'] }}">
+                                            {{ $subCategory->name }}
+                                        </a>
+                                    </li>
+                                @endforeach
 
-                        <ul class="mobile sub-menu">
-                            <li><a href="./Tour.html"> <img src="./assets/images/icon.svg (3).svg">Cairo Day Tours</a>
-                            </li>
-                            <li><a href="./Tour.html"> <img src="./assets/images/icon.svg (2).svg"> ⁠Luxor Day
-                                    Tours</a>
-                            </li>
-                            <li><a href="./Tour.html"><img src="./assets/images/icon.svg(22).svg">⁠Hurghada Day
-                                    Tours</a></li>
-                            <li><a href="./Tour.html"><img src="./assets/images/icon01.svg"> Dahab Day Tours</a></li>
-                            <li><a href="./Tour.html"><img src="./assets/images/icon.svg.svg">⁠Aswan Day Tours</a>
-                            </li>
-                            <li><a href="./Tour.html"> <img src="./assets/images/icon02.svg"> Alexandria Day Tours</a>
-                            </li>
-                            <li><a href="./Tour.html"><img src="./assets/images/icon03.svg"> Makadi Bay Excursions</a>
-                            </li>
-                            <li><a href="./Tour.html"><img src="./assets/images/icon0.svg"> El Gouna Day Tours</a>
-                            </li>
-                        </ul>
-                    </li>
-
-                    <li class="nav-item mobile has-dropdown">
-                        <a href="./SubCategory.html" class="nav-link">
-                            Travel Packages
-                            <span class="icon-down icon-down-one">
-                                <i class="fas fa-angle-down"></i>
-                            </span>
-                        </a>
-
-                        <ul class="mobile sub-menu">
-
-                            <li><a href="./Tour.html"><img src="./assets/images/cruise-svgrepo-com.svg"> Egypt Nile
-                                    Cruise
-                                    Tours </a></li>
-                            <li><a href="./Tour.html"> <img src="./assets/images/icon.svg3.svg">⁠Egypt
-                                    Classical Tours</a></li>
-                            <li><a href="./Tour.html"> <img src="./assets/images/Family.svg.svg"> ⁠Egypt
-                                    Family Tours</a></li>
-                            <li><a href="./Tour.html"> <img src="./assets/images/saicon.svg.svg"> Egypt Budget
-                                    Packages
-                                </a></li>
-                        </ul>
-                    </li>
-
-                    <li class="nav-item mobile has-dropdown">
-                        <a href="./SubCategory.html" class="nav-link">
-                            Nile Cruises
-                            <span class="icon-down icon-down-one">
-                                <i class="fas fa-angle-down"></i>
-                            </span>
-                        </a>
-
-                        <ul class="mobile sub-menu">
-                            <li><a href="./Tour.html"><img src="./assets/images/icon.(3).svg"> Dahabiya Nile
-                                    Cruise</a>
-                            </li>
-                            <li><a href="./Tour.html"> <img src="./assets/images/icon9.svg"> Luxor and Aswan Nile
-                                    cruise</a></li>
-                        </ul>
-                    </li>
-
-                    <li class="nav-item mobile has-dropdown">
-                        <a href="./TravelStyle.html" class="nav-link">
-                            Travel Style
-                            <span class="icon-down icon-down-one">
-                                <i class="fas fa-angle-down"></i>
-                            </span>
-                        </a>
-
-                        <ul class="mobile sub-menu">
-                            <li><a href="./Tour.html"><img src="./assets/images/icon12.svg">
-                                    Family
-                                    Tours</a></li>
-                            <li><a href="./Tour.html"><img src="./assets/images/icon5.svg">
-                                    Adventure
-                                    Tours</a></li>
-                        </ul>
-                    </li>
-
-
-
-
-
-                    <li class="nav-item mobile has-dropdown">
-                        <span class="nav-link">
-                            Pages
-                            <span class="icon-down icon-down-one">
-                                <i class="fas fa-angle-down"></i>
-                            </span>
-                        </span>
-
-                        <ul class="mobile sub-menu">
-                            <li><a href="./aboutUs.html"> <img src="./assets/images/icon09.svg">About Us</a></li>
-                            <li><a href="./Blog.html"><img src="./assets/images/icon099.svg">Blogs</a></li>
-                            <li><a href="./contact-us.html"> <img src="./assets/images/icon08).svg">Contact Us</a>
-                            </li>
-                            <li><a href="./transfer.html"><img src="./assets/images/Rent Car.svg">Rent Car</a></li>
-                        </ul>
-                    </li>
+                            </ul>
+                        </li>
+                    @endforeach
 
                     <div class="extra-nav mt-5">
                         <a href="tailorMade.html" class="theme-btn"><i class="fa-solid fa-arrow-right"></i>
 
-                            Plan Your Trip
+                            {{ __('navbar.plan_your_trip') }}
                         </a>
 
                     </div>

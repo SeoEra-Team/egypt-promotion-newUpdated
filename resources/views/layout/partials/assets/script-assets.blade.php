@@ -6,5 +6,3 @@
 <script src="{{ asset('assets/js/script.js') }}"></script>
 
 <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
-<!-- My Custom Js  -->
-<script src="./assets/js/script.js"></script>

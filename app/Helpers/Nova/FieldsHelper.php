@@ -212,15 +212,6 @@ class FieldsHelper
             Image::make(__('Banner Image'), 'home_banner_img')
                 ->rules(RulesHelper::NULLABLE_IMAGE_VALIDATION),
 
-            Image::make(__('Image Left Side'), 'home_left_side_img')
-                ->rules(RulesHelper::NULLABLE_IMAGE_VALIDATION),
-
-            Image::make(__('Image right Side up'), 'home_right_side_up_img')
-                ->rules(RulesHelper::NULLABLE_IMAGE_VALIDATION),
-
-            Image::make(__('Image right Side down'), 'home_right_side_down_img')
-                ->rules(RulesHelper::NULLABLE_IMAGE_VALIDATION),
-
             Text::make(__('Banner Title'), 'home_banner_title')
                 ->rules(RulesHelper::NULLABLE_STRING_VALIDATION)
                 ->translatable(),
@@ -228,48 +219,11 @@ class FieldsHelper
             Text::make(__('Banner Sub Title'), 'home_banner_sub_title')
                 ->rules(RulesHelper::NULLABLE_STRING_VALIDATION)
                 ->translatable(),
-            Heading::make(__('Services Section')),
-            // service 4 home_service_title_1, honme_service_description, home_service_icon *4 
 
-            Text::make(__('Title 1'), 'home_service_title_1')
-                ->rules(RulesHelper::NULLABLE_STRING_VALIDATION)
-                ->translatable(),
-            Text::make(__('Description 1'), 'home_service_description_1')
-                ->rules(RulesHelper::NULLABLE_STRING_VALIDATION)
-                ->translatable(),
-            Image::make(__('Icon 1'), 'home_service_icon_1')
-                ->rules(RulesHelper::NULLABLE_IMAGE_VALIDATION),
-
-            Text::make(__('Title 2'), 'home_service_title_2')
-                ->rules(RulesHelper::NULLABLE_STRING_VALIDATION)
-                ->translatable(),
-            Text::make(__('Description 2'), 'home_service_description_2')
-                ->rules(RulesHelper::NULLABLE_STRING_VALIDATION)
-                ->translatable(),
-            Image::make(__('Icon 2'), 'home_service_icon_2')
-                ->rules(RulesHelper::NULLABLE_IMAGE_VALIDATION),
-
-            Text::make(__('Title 3'), 'home_service_title_3')
-                ->rules(RulesHelper::NULLABLE_STRING_VALIDATION)
-                ->translatable(),
-            Text::make(__('Description 3'), 'home_service_description_3')
-                ->rules(RulesHelper::NULLABLE_STRING_VALIDATION)
-                ->translatable(),
-            Image::make(__('Icon 3'), 'home_service_icon_3')
-                ->rules(RulesHelper::NULLABLE_IMAGE_VALIDATION),
-
-            Text::make(__('Title 4'), 'home_service_title_4')
-                ->rules(RulesHelper::NULLABLE_STRING_VALIDATION)
-                ->translatable(),
-            Text::make(__('Description 4'), 'home_service_description_4')
-                ->rules(RulesHelper::NULLABLE_STRING_VALIDATION)
-                ->translatable(),
-            Image::make(__('Icon 4'), 'home_service_icon_4')
-                ->rules(RulesHelper::NULLABLE_IMAGE_VALIDATION),
-
-
-
-
+            Heading::make(__('Sub Category Section')),
+            Text::make(__('Label'), 'sub_category_section_label')->translatable(),
+            Text::make(__('Title'), 'sub_category_section_title')->translatable(),
+            CKEditor::make(__('Description'), 'sub_category_section_description')->translatable(),
 
 
             Heading::make(__('First Tour Section')),
@@ -278,44 +232,13 @@ class FieldsHelper
             CKEditor::make(__('Description'), 'first_tour_section_description')->translatable(),
 
 
-            Heading::make(__('Category Section')),
-            Text::make(__('Label'), 'sub_category_section_label')->translatable(),
-            Text::make(__('Title'), 'sub_category_section_title')->translatable(),
-            CKEditor::make(__('Description'), 'sub_category_section_description')->translatable(),
-
+            
 
             Heading::make(__('Second Tour Section')),
             Text::make(__('Label'), 'second_section_label')->translatable(),
             Text::make(__('Title'), 'second_section_title')->translatable(),
             CKEditor::make(__('Description'), 'second_section_description')->translatable(),
-            Image::make(__('Image background'), 'second_section_bg_image'),
-            Text::make(__('descount title'), 'second_section_descount_title')->translatable(),
-            Text::make(__('descount number'), 'second_section_descount_number')->translatable(),
-            Text::make(__('Day'), 'second_section_date_deadline')
-                ->help('Enter date and time in YYYY-MM-DDformat (e.g., 2025-08-20)')
-                ->rules('nullable', 'date_format:Y-m-d'),
-            Text::make(__('Button Link'), 'second_section_btn_link')->rules(RulesHelper::NULLABLE_STRING_VALIDATION),
-
-
-            Heading::make(__('Mid Banner')),
-
-            Image::make(__('Image Banner'), 'home_midBanner_image')
-                ->rules(RulesHelper::NULLABLE_IMAGE_VALIDATION),
-
-            Text::make(__('Image Title'), 'home_midBanner_title')
-                ->rules(RulesHelper::NULLABLE_STRING_VALIDATION)
-                ->translatable(),
-
-            Text::make(__('Sub Title'), 'home_midBanner_sub_title')
-                ->rules(RulesHelper::NULLABLE_STRING_VALIDATION)
-                ->translatable(),
-            Text::make(__('Button Text'), 'home_midBanner_btn_text')
-                ->rules(RulesHelper::NULLABLE_STRING_VALIDATION)
-                ->translatable(),
-
-            Text::make(__('Button Link'), 'home_midBanner_btn_link')->rules(RulesHelper::NULLABLE_STRING_VALIDATION),
-            Text::make(__('Description'), 'home_midBanner_section_description')->translatable(),
-
+            
 
             Heading::make(__('Third Tour Section')),
             Text::make(__('Label'), 'third_tour_section_label')->translatable(),
@@ -327,53 +250,18 @@ class FieldsHelper
             Text::make(__('Title'), 'blog_section_title')->translatable(),
             CKEditor::make(__('Description'), 'blog_section_description')->translatable(),
 
-            Heading::make(__('Testimonials Section')),
+            Heading::make(__('Book Amazing Egypt Trips')),
             Text::make(__('Title'), 'testimonials_section_title')->translatable(),
-            Image::make(__('Image background'), 'testimonials_section_image'),
             CKEditor::make(__('Description'), 'testimonials_section_description')->translatable(),
 
 
-            Heading::make(__('Reviews Section')),
-
-            // Review 1
-            Text::make(__('Title 1'), 'reviews_section_title_1')->translatable(),
-            Text::make(__('Link 1'), 'reviews_section_link_1'),
-            Number::make('Rate 1', 'reviews_section_rate_1'),
-            Image::make(__('Image 1'), 'reviews_section_img_1')->rules(RulesHelper::NULLABLE_IMAGE_VALIDATION),
-
-            // Review 2
-            Text::make(__('Title 2'), 'reviews_section_title_2')->translatable(),
-            Text::make(__('Link 2'), 'reviews_section_link_2'),
-            Number::make('Rate 2', 'reviews_section_rate_2'),
-            Image::make(__('Image 2'), 'reviews_section_img_2')->rules(RulesHelper::NULLABLE_IMAGE_VALIDATION),
-
-            // Review 3
-            Text::make(__('Title 3'), 'reviews_section_title_3')->translatable(),
-            Text::make(__('Link 3'), 'reviews_section_link_3'),
-            Number::make('Rate 3', 'reviews_section_rate_3'),
-            Image::make(__('Image 3'), 'reviews_section_img_3')->rules(RulesHelper::NULLABLE_IMAGE_VALIDATION),
-
-            // Review 4
-            Text::make(__('Title 4'), 'reviews_section_title_4')->translatable(),
-            Text::make(__('Link 4'), 'reviews_section_link_4'),
-            Number::make('Rate 4', 'reviews_section_rate_4'),
-            Image::make(__('Image 4'), 'reviews_section_img_4')->rules(RulesHelper::NULLABLE_IMAGE_VALIDATION),
-
+            
 
             Heading::make(__('faq Section')),
             Text::make(__('Label'), 'faq_section_label')->translatable(),
             Text::make(__('Title'), 'faq_section_title')->translatable(),
             CKEditor::make(__('Description'), 'faq_section_description')->translatable(),
-            SimpleRepeatable::make('Faq Items', 'faq_service_items', [
-                Text::make(__('Title'), 'title')
-                    ->rules(RulesHelper::NULLABLE_STRING_VALIDATION)
-                    ->translatable(),
-                Heroicon::make(__('Icon'), 'icon')
-                    ->rules(RulesHelper::NULLABLE_ICON_VALIDATION),
-                Text::make(__('Description'), 'description')
-                    ->rules(RulesHelper::NULLABLE_STRING_VALIDATION)
-                    ->translatable(),
-            ]),
+            
 
             Heading::make(__('Partner Section')),
             Text::make(__('Title'), 'partner_section_title')->translatable(),

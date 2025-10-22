@@ -72,15 +72,15 @@ class NovaServiceProvider extends NovaApplicationServiceProvider
                 new Panel(__('Page tailor'), FieldsHelper::pageTailor()),
             ], [], __('Page tailor'));
 
-            NovaSettings::addSettingsFields([
-                new Panel(__('contact us'), FieldsHelper::contactus()),
-            ], [], __('contact us'));
-            NovaSettings::addSettingsFields([
-                new Panel(__('special offers'), FieldsHelper::specialOffers()),
-            ], [], __('Special offers'));
-            NovaSettings::addSettingsFields([
-                new Panel(__('Article Categories'), FieldsHelper::articleCategories()),
-            ], [], __('Article Categories'));
+            // NovaSettings::addSettingsFields([
+            //     new Panel(__('contact us'), FieldsHelper::contactus()),
+            // ], [], __('contact us'));
+            // NovaSettings::addSettingsFields([
+            //     new Panel(__('special offers'), FieldsHelper::specialOffers()),
+            // ], [], __('Special offers'));
+            // NovaSettings::addSettingsFields([
+            //     new Panel(__('Article Categories'), FieldsHelper::articleCategories()),
+            // ], [], __('Article Categories'));
 
         
             Nova::serving(function (ServingNova $event) {

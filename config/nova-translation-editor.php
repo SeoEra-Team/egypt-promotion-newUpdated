@@ -1,7 +1,7 @@
 <?php return [
   'groups' => [
      'general',
-     'homePage',
+     'home',
      'navbar',
      'slider',
      'tour',

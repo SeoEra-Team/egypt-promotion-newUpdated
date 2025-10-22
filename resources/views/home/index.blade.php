@@ -8,48 +8,45 @@
         'schema' => nova_get_setting('site_schema'),
     ])
 @endsection
-@section('extraStyles')
-    <style>
-        .desc-special-offer * {
-            font-size: 30px !important;
-            font-weight: 400 !important;
-            color: #16243d !important;
-            margin-bottom: 10px !important;
-        }
-    </style>
-@endsection
 @section('content')
     @include('home.partials.banner')
+    @include('home.partials.first_sub_categories_section')
+    @include('home.partials.first_tour_section')
+    @include('home.partials.second_tour_section')
+    @include('home.partials.second_sub_categories_section')
+    @include('home.partials.articles_section')
+    @include('home.partials.book_amazing_section')
     @include('layout.partials.faqs')
 @endsection
 @section('extraScripts')
     <script>
-        document.addEventListener("DOMContentLoaded", function () {
-            const tabContainer = document.querySelector(".tab-container");
-            const tabButtons = tabContainer.querySelectorAll(".travel-tab-btn");
+        
+        // document.addEventListener("DOMContentLoaded", function () {
+        //     const tabContainer = document.querySelector(".tab-container");
+        //     const tabButtons = tabContainer.querySelectorAll(".travel-tab-btn");
 
-            tabButtons.forEach((btn) => {
-                btn.addEventListener("click", () => {
-                    tabContainer.scrollTo({
-                        left: btn.offsetLeft - 10,
-                        behavior: "smooth"
-                    });
-                });
-            });
+        //     tabButtons.forEach((btn) => {
+        //         btn.addEventListener("click", () => {
+        //             tabContainer.scrollTo({
+        //                 left: btn.offsetLeft - 10,
+        //                 behavior: "smooth"
+        //             });
+        //         });
+        //     });
 
-            document.querySelector(".right-btn").addEventListener("click", () => {
-                tabContainer.scrollBy({
-                    left: 150,
-                    behavior: "smooth"
-                });
-            });
+        //     document.querySelector(".right-btn").addEventListener("click", () => {
+        //         tabContainer.scrollBy({
+        //             left: 150,
+        //             behavior: "smooth"
+        //         });
+        //     });
 
-            document.querySelector(".left-btn").addEventListener("click", () => {
-                tabContainer.scrollBy({
-                    left: -150,
-                    behavior: "smooth"
-                });
-            });
-        });
+        //     document.querySelector(".left-btn").addEventListener("click", () => {
+        //         tabContainer.scrollBy({
+        //             left: -150,
+        //             behavior: "smooth"
+        //         });
+        //     });
+        // });
     </script>
 @endsection

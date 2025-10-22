@@ -48,7 +48,7 @@ class Tour extends Model implements HasMedia, Sortable
     ];
 
     protected $cascadeDeletes = [];
-    protected $append = ['final_price'];
+    protected $append = ['final_price', 'img_first'];
 
     public $sortable = [
         'sort_on_has_many' => true,
@@ -60,6 +60,8 @@ class Tour extends Model implements HasMedia, Sortable
         $this->addMediaCollection(MediaHelper::TOUR_MEDIA_PATH)->singleFile();
         $this->addMediaCollection(MediaHelper::TOUR_BANNER_MEDIA_PATH)->singleFile();
         $this->addMediaCollection(MediaHelper::TOUR_GALLERY_MEDIA_PATH);
+        $this->addMediaCollection(MediaHelper::TOUR_SUBIMG_MEDIA_PATH)->singleFile();
+        
     }
 
     public function registerMediaConversions(Media $media = null): void
@@ -72,6 +74,10 @@ class Tour extends Model implements HasMedia, Sortable
         
         $this->addMediaConversion('large')
             ->performOnCollections(MediaHelper::TOUR_GALLERY_MEDIA_PATH)
+            ->format(Manipulations::FORMAT_WEBP);
+
+        $this->addMediaConversion('large')
+            ->performOnCollections(MediaHelper::TOUR_SUBIMG_MEDIA_PATH)
             ->format(Manipulations::FORMAT_WEBP);
 
     }
@@ -132,4 +138,10 @@ class Tour extends Model implements HasMedia, Sortable
         return $this->belongsToMany(Article::class, 'article_tours', 'tour_id', 'article_id');
     }
 
+    public function getImgFirstAttribute()
+    {
+        $imgs = $this->getMedia(MediaHelper::TOUR_GALLERY_MEDIA_PATH)->first()?->getUrl() ?? '';
+        
+        return $imgs;
+    }
 }

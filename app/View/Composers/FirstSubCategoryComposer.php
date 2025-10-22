@@ -12,12 +12,16 @@ use App\Models\Testimonial;
 use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\DB;
 
-class subCategoryComposer
+class FirstSubCategoryComposer
 {
     public function compose(View $view)
     {
         $data = [];
-        $data['subCategories'] = SubCategory::where('status', true)->get();
+        $data['subCategories'] = SubCategory::where('status', true)
+            ->where('first', true)
+            ->lang()
+            ->take(9)
+            ->get();
         $view->with($data);
     }
 }

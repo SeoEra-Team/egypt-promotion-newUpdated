@@ -98,7 +98,6 @@ class Tour extends Resource
                         'tour' => 'Tour',
                         'package' => 'Package',
                         'nile-cruise' => 'Nile Cruise',
-                        'dahabiya' => 'Dahabiya'    
                     ]),
 
 
@@ -112,7 +111,8 @@ class Tour extends Resource
                     ->rules(RulesHelper::NULLABLE_NUMERIC_VALIDATION)
                     ->hideFromDetail()
                     ->hideWhenCreating()
-                    ->hideWhenUpdating(),
+                    ->hideWhenUpdating()
+                    ->hideFromIndex(),
 
                 Currency::make('Discount', 'discount', fn() => !is_null($this->discount) ? number_format($this->discount, ',') : 0)->default(0)
                     ->rules(RulesHelper::NULLABLE_VALIDATION)->hideFromIndex(),
@@ -120,7 +120,7 @@ class Tour extends Resource
                 Select::make('Discount Type', 'discount_type')->options([
                     'number' => 'Number',
                     'percentage' => 'Percentage'
-                ])->default('number')->rules(RulesHelper::NULLABLE_STRING_VALIDATION),
+                ])->default('number')->rules(RulesHelper::NULLABLE_STRING_VALIDATION)->hideFromIndex(),
             ]),
 
             new Panel('Main Data', [
@@ -429,10 +429,7 @@ class Tour extends Resource
                     ->rules(RulesHelper::NULLABLE_MID_STRING_VALIDATION)
                     ->hideFromIndex()->translatable(),
 
-                Rating::make('Rate', 7),
-
-                Number::make('Rate Count', 'counter_rate')
-                    ->rules(RulesHelper::NULLABLE_NUMBER_VALIDATION)
+                
             ]),
 
 
@@ -455,13 +452,10 @@ class Tour extends Resource
                     ->trueValue(true)->falseValue(false)
                     ->editableIndex(),
 
-                Toggle::make(__('Featured'), 'featured')
-                    ->trueValue(true)->falseValue(false)
-                    ->editableIndex(),
 
-                Toggle::make(__('offer'), 'offer')
-                    ->trueValue(true)->falseValue(false)
-                    ->editableIndex(),
+                // Toggle::make(__('offer'), 'offer')
+                //     ->trueValue(true)->falseValue(false)
+                //     ->editableIndex(),
             ]),
 
 

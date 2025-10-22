@@ -45,22 +45,25 @@ class GeneralComposer
             ->with(['children' => function ($query) {
                 $query->where('status', true);
                 $query->where('footer', true);
-                $query->take(5);
+                $query->lang();
+                // $query->take(5);
             }])
             ->take(2)
             ->get();
-        $data['DahabiyaCategories'] = Category::where('status', true)
-            ->where('type', 'dahabiya')
-            ->with(['children' => function ($query) {
-                $query->where('status', true);
-                $query->where('dahabiya', true);
-                $query->lang();
-                $query->first();
-                $query->with(['tours' => function ($query) {
-                    $query->where('status', true);
-                    $query->lang();
-                }]);
-            }])->first();
+            // dd($data['footerCategories']);
+        // $data['DahabiyaCategories'] = Category::where('status', true)
+        //     ->where('type', 'dahabiya')
+        //     ->with(['children' => function ($query) {
+        //         $query->where('status', true);
+        //         $query->where('dahabiya', true);
+        //         $query->lang();
+        //         $query->first();
+        //         $query->with(['tours' => function ($query) {
+        //             $query->where('status', true);
+        //             $query->where('header', true);
+        //             $query->lang();
+        //         }]);
+        //     }])->first();
             // dd($data['DahabiyaCategories']->children->first()->tours);
         $view->with($data);
     }

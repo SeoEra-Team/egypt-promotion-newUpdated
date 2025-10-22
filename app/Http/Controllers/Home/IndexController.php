@@ -41,7 +41,6 @@ class IndexController extends Controller
                 'infoList' => nova_get_setting('info_list', []),
             ];
         });
-        // dd($whyUsSection);
         return view('home.index', compact('data'));
     }
 

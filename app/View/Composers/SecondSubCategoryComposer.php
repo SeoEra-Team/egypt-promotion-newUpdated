@@ -9,20 +9,27 @@ use App\Helpers\Classes\Currency as CurrencyHelp;
 use App\Models\Page;
 use App\Models\SubCategory;
 use App\Models\Testimonial;
-use App\Models\Tour;
 use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\DB;
 
-class SecondTourComposer
+class SecondSubCategoryComposer
 {
     public function compose(View $view)
     {
         $data = [];
-        $data['secondTours'] = Tour::where('status', true)
-            ->lang()
+        $data['subCategories'] = SubCategory::where('status', true)
             ->where('second', true)
+            ->lang()
+            ->with([
+                'tours' => function ($query) {
+                    $query->where('status', true);
+                    $query->where('third', true);
+                    $query->lang();
+                    $query->take(6);
+                }
+            ])
+            ->take(4)
             ->get();
-        // dd($data['secondTours']);
         $view->with($data);
     }
 }
