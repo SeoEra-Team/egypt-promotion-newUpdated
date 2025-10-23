@@ -83,7 +83,7 @@ class Category extends Resource
                 ->translatable()->hideFromIndex(),
 
             FieldsHelper::image(true, MediaHelper::CATEGORY_MEDIA_PATH, 'Image', true),
-            FieldsHelper::image(true, MediaHelper::CATEGORY_BANNER_MEDIA_PATH, 'Banner', true),
+            FieldsHelper::image(false, MediaHelper::CATEGORY_BANNER_MEDIA_PATH, 'Banner', true),
 
             Toggle::make(__('Status'), 'status')
                 ->trueValue(true)->falseValue(false)

@@ -15,7 +15,7 @@
     @include('home.partials.second_tour_section')
     @include('home.partials.second_sub_categories_section')
     @include('home.partials.articles_section')
-    @include('home.partials.book_amazing_section')
+    
     @include('layout.partials.faqs')
 @endsection
 @section('extraScripts')

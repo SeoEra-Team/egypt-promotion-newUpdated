@@ -251,12 +251,33 @@ class FieldsHelper
             CKEditor::make(__('Description'), 'blog_section_description')->translatable(),
 
             Heading::make(__('Book Amazing Egypt Trips')),
-            Text::make(__('Title'), 'testimonials_section_title')->translatable(),
-            CKEditor::make(__('Description'), 'testimonials_section_description')->translatable(),
+            Text::make(__('Title'), 'book_amazing_section_title')->translatable(),
+            CKEditor::make(__('Description'), 'book_amazing_section_description')->translatable(),
+            
+            Heading::make(__('Featured')),
+            Image::make(__('img 1'), 'featured_img_1')
+                ->rules(RulesHelper::NULLABLE_IMAGE_VALIDATION),
+            Text::make(__('Title'), 'featured_title_1')->translatable(),
+            CKEditor::make(__('Description'), 'featured_description_1')->translatable(),
 
+            Image::make(__('img 2'), 'featured_img_2')
+                ->rules(RulesHelper::NULLABLE_IMAGE_VALIDATION),
+            Text::make(__('Title'), 'featured_title_2')->translatable(),
+            CKEditor::make(__('Description'), 'featured_description_2')->translatable(),
+
+            Image::make(__('img 3'), 'featured_img_3')
+                ->rules(RulesHelper::NULLABLE_IMAGE_VALIDATION),
+            Text::make(__('Title'), 'featured_title_3')->translatable(),
+            CKEditor::make(__('Description'), 'featured_description_3')->translatable(),
+            
+            Image::make(__('img 4'), 'featured_img_4')
+                ->rules(RulesHelper::NULLABLE_IMAGE_VALIDATION),
+            Text::make(__('Title'), 'featured_title_4')->translatable(),
+            CKEditor::make(__('Description'), 'featured_description_4')->translatable(),
 
             
 
+            
             Heading::make(__('faq Section')),
             Text::make(__('Label'), 'faq_section_label')->translatable(),
             Text::make(__('Title'), 'faq_section_title')->translatable(),
@@ -339,30 +360,35 @@ class FieldsHelper
     public static function thankYouPage(): array
     {
         return [
-            Image::make(__('Banner'), 'thanks_page_banner')
-                ->maxWidth(200)
-                ->rules(RulesHelper::NULLABLE_IMAGE_VALIDATION),
+            // Image::make(__('Banner'), 'thanks_page_banner')
+            //     ->maxWidth(200)
+            //     ->rules(RulesHelper::NULLABLE_IMAGE_VALIDATION),
 
-            Text::make(__('Banner Alt'), 'thanks_page_banner_alt')
-                ->rules(RulesHelper::NULLABLE_STRING_VALIDATION)
-                ->translatable(),
-            Text::make(__('Banner Title'), 'thanks_page_banner_title')
-                ->rules(RulesHelper::NULLABLE_STRING_VALIDATION)
-                ->translatable(),
+            // Text::make(__('Banner Alt'), 'thanks_page_banner_alt')
+            //     ->rules(RulesHelper::NULLABLE_STRING_VALIDATION)
+            //     ->translatable(),
+            // Text::make(__('Banner Title'), 'thanks_page_banner_title')
+            //     ->rules(RulesHelper::NULLABLE_STRING_VALIDATION)
+            //     ->translatable(),
 
 
             Text::make(__('Title'), 'thanks_page_title')
                 ->rules(RulesHelper::NULLABLE_TEXT_VALIDATION)
                 ->translatable(),
 
-            Text::make(__('Name'), 'thanks_page_name')
+            Text::make(__('Sub Title'), 'thanks_page_sub_title')
+                ->rules(RulesHelper::NULLABLE_TEXT_VALIDATION)
+                ->translatable(),
+
+            Text::make(__('Button title'), 'thanks_page_button_title')
+                ->rules(RulesHelper::NULLABLE_TEXT_VALIDATION)
+                ->translatable(),
+
+            CKEditor::make(__('Description'), 'thanks_page_description')
                 ->rules(RulesHelper::NULLABLE_TEXT_VALIDATION)
                 ->translatable(),
 
 
-            CKEditor::make(__('Description'), 'thanks_page_text')
-                ->rules(RulesHelper::NULLABLE_TEXT_VALIDATION)
-                ->translatable(),
 
             Heading::make(__('SEO')),
             Text::make(__('Meta Title'), 'thanks_page_meta_title')->translatable(),

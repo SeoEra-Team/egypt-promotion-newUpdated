@@ -123,7 +123,7 @@
                                 </li>
                                 @foreach ($headercategories as $headercategory)
                                     <li>
-                                        <a href="#"><span>
+                                        <a href="{{ route('tour.category', ['categorySlug' => $headercategory->slug]) }}"><span>
                                                 {{ $headercategory->name }}
                                             </span>
                                             <i class="fa fa-chevron-down"></i>
@@ -323,7 +323,7 @@
                     </li>
                     @foreach ($headercategories as $headercategory)
                         <li class="nav-item mobile has-dropdown">
-                            <a href="./SubCategory.html" class="nav-link">
+                            <a href="{{ route('tour.category', ['categorySlug' => $headercategory->slug]) }}" class="nav-link">
                                 {{ $headercategory->name }}
                                 <span class="icon-down icon-down-one">
                                     <i class="fas fa-angle-down"></i>
@@ -333,7 +333,7 @@
                             <ul class="mobile sub-menu">
                                 @foreach ($headercategory->children as $subCategory)
                                     <li>
-                                        <a href="./Tour.html"> 
+                                        <a href=""> 
                                             <img src="{{ $subCategory->getFirstMediaUrlOrDefault(MediaHelper::SUB_CATEGORY_SUBIMG_MEDIA_PATH, 'webp')['url'] }}">
                                             {{ $subCategory->name }}
                                         </a>

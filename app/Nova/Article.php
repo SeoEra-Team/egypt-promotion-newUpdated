@@ -11,6 +11,7 @@ use Davidpiesse\NovaToggle\Toggle;
 use Illuminate\Http\Request;
 use Laravel\Nova\Fields\BelongsTo;
 use Laravel\Nova\Fields\BelongsToMany;
+use Laravel\Nova\Fields\Date;
 use Laravel\Nova\Fields\ID;
 use Laravel\Nova\Fields\Text;
 use Laravel\Nova\Fields\Textarea;
@@ -60,16 +61,19 @@ class Article extends Resource
             // BelongsToManyField::make('Tours', 'tours', Tour::class)
             //     ->optionsLabel('name.'.app()->getLocale())->hideFromIndex(),
 
-            BelongsToManyField::make('tag', 'tags', Tag::class)
-                ->optionsLabel('name.' . app()->getLocale())->hideFromIndex(),
+            // BelongsToManyField::make('tag', 'tags', Tag::class)
+            //     ->optionsLabel('name.' . app()->getLocale())->hideFromIndex(),
 
+            BelongsTo::make(__('Parent Category'), 'category', ArticleCategory::class)
+                ->withoutTrashed(),
 
             TextWithSlug::make(__('Name'), 'name')
                 ->rules(RulesHelper::REQUIRED_STRING_VALIDATION)
                 ->slug()->translatable(),
 
-            Text::make(__('Author Name'), 'author_name')
-                ->rules(RulesHelper::NULLABLE_STRING_VALIDATION),
+
+            Date::make(__('Date'), 'date')
+                ->rules(RulesHelper::NULLABLE_DATE_VALIDATION)->hideFromIndex(),
 
             Textarea::make('Short Description', 'short_description')
                 ->rules(RulesHelper::NULLABLE_TEXT_VALIDATION)
@@ -87,18 +91,10 @@ class Article extends Resource
                 ->trueValue(true)->falseValue(false)
                 ->editableIndex(),
 
-            Toggle::make(__('show in offer page'), 'offer')
+            Toggle::make(__('Show in Home'), 'home')
                 ->trueValue(true)->falseValue(false)
                 ->editableIndex(),
 
-
-            new Panel(__('Travel Packages'), [
-                Flexible::make('Travel Packages', 'travel_packages')
-                    ->addLayout('Group', 'group', [
-                        Text::make('Title', 'title')->rules(RulesHelper::NULLABLE_TEXT_VALIDATION)->translatable(),
-                        CkEditor::make('Description', 'description')->rules(RulesHelper::NULLABLE_TEXT_VALIDATION)->translatable(),
-                    ]),
-            ]),
 
 
             new Panel(__('SEO'), FieldsHelper::seoFields('articles')),

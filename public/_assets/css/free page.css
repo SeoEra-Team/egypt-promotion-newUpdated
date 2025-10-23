@@ -1,0 +1,369 @@
+/* ===========================================================
+    free page
+============================================================= */
+.about-wrapper .about-wrapper-left .video-popup-wrap {
+  display: inline-block;
+  margin-bottom: 10px;
+  float: right;
+  margin-bottom: 10px;
+}
+
+.section-head.head-left {
+  text-align: left;
+  margin-top: 19px;
+}
+
+.about-wrapper-left .video-popup-wrap .thumb img {
+  width: 474px;
+  height: 353px;
+}
+
+.video-popup-wrap {
+  position: relative;
+}
+
+.video-popup-wrap .thumb img {
+  width: 100%;
+  height: 100%;
+}
+
+.video-popup-wrap .thumb {
+  position: relative;
+  display: block;
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+  -webkit-mask-image: url("https://deluxetourseg.com/front/assets/images/asd.png");
+  -webkit-mask-size: 100% 100%;
+  mask-size: 100% 100%;
+  -webkit-transform: rotate(1.8deg);
+  -ms-transform: rotate(1.8deg);
+  transform: rotate(1.8deg);
+}
+
+.video-popup-wrap .thumb img {
+  width: 100%;
+  height: 465px;
+}
+
+.video-popup-wrap:after {
+  content: '';
+  background-image: url("https://deluxetourseg.com/front/assets/images/asd.png");
+  position: absolute;
+  width: 99%;
+  background-size: cover;
+  height: 94%;
+  left: .5%;
+  background-position: 100% 100%;
+  z-index: -1;
+  top: 3%;
+  -webkit-transform: rotate(-4deg);
+  -ms-transform: rotate(-4deg);
+  transform: rotate(-4deg);
+  border-radius: 10px;
+}
+
+/* ===========================================================
+    free page
+============================================================= */
+
+
+/*===============================================================
+choose-us-icon
+===============================================================*/
+.choose-us-icon .icon-svg {
+  width: 70px;
+  height: 70px;
+  object-fit: contain;
+}
+
+/*===============================================================
+  choose-us-icon
+===============================================================*/
+
+
+/* ===========================================================
+  thanke-you
+============================================================= */
+
+.wrap {
+  width: 100%;
+  position: relative;
+  overflow: visible;
+  padding: 40px;
+  border-radius: 18px;
+  background: radial-gradient(1000px 600px at 10% 20%, rgba(59, 130, 246, 0.12), transparent), radial-gradient(900px 500px at 90% 80%, rgba(239, 71, 111, 0.07), transparent), linear-gradient(180deg, #2193b0, #2193b0 80%);
+  box-shadow: 0 10px 40px rgba(2, 6, 23, 0.6), inset 0 1px 0 rgba(255, 255, 255, 0.02);
+  backdrop-filter: blur 8px;
+}
+
+.hero {
+  display: flex;
+  gap: 28px;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap-reverse;
+}
+
+.left {
+  flex: 1 1 360px;
+  min-width: 260px;
+}
+
+.title {
+  font-size: 34px;
+  margin: 0 0 10px 0;
+  letter-spacing: 0.4px;
+  font-weight: 800;
+  line-height: 1.02;
+  color: #fff;
+}
+
+.subtitle {
+  margin: 0 0 18px 0;
+  opacity: 0.9;
+  font-weight: 500;
+  color: #fff;
+}
+
+.card {
+  background: var(--card-bg);
+  padding: 18px 20px;
+  border-radius: 12px;
+  display: inline-block;
+  box-shadow: 0 6px 18px rgba(2, 6, 23, 0.45);
+}
+
+.btn {
+  display: inline-block;
+  margin-top: 18px;
+  padding: 12px 18px;
+  border-radius: 999px;
+  text-decoration: none;
+  font-weight: 700;
+  letter-spacing: 0.3px;
+  background: linear-gradient(90deg, rgba(0, 0, 0, 0.1), #dc3545);
+  color: #07203f;
+  box-shadow: 0 8px 24px rgba(239, 71, 111, 0.12), 0 2px 6px rgba(2, 6, 23, 0.6);
+  transform: translateY(0);
+  transition: transform 220ms ease, box-shadow 220ms ease;
+}
+
+.btn:active {
+  transform: translateY(2px)
+}
+
+.right {
+  width: 320px;
+  height: 320px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.orb {
+  width: 220px;
+  height: 220px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0.12), transparent 30%),
+    linear-gradient(135deg, rgba(59, 130, 246, 0.16), rgba(239, 71, 111, 0.12));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 20px 40px rgba(3, 7, 23, 0.6), inset 0 1px 0 rgba(255, 255, 255, 0.02);
+  transform: translateY(0);
+  animation: float 6s ease-in-out infinite;
+}
+
+@keyframes float {
+  0% {
+    transform: translateY(0) scale(1)
+  }
+
+  50% {
+    transform: translateY(-12px) scale(1.02)
+  }
+
+  100% {
+    transform: translateY(0) scale(1)
+  }
+}
+
+.check {
+  width: 120px;
+  height: 120px;
+  display: block;
+}
+
+.check svg path {
+  stroke-dasharray: 500;
+  stroke-dashoffset: 500;
+  animation: dash 1s ease forwards 0.25s
+}
+
+@keyframes dash {
+  to {
+    stroke-dashoffset: 0
+  }
+}
+
+.confetti {
+  pointer-events: none;
+  position: absolute;
+  inset: 0;
+  overflow: visible;
+}
+
+.confetti span {
+  position: absolute;
+  display: block;
+  width: 10px;
+  height: 14px;
+  opacity: 0.95;
+  transform-origin: center;
+  border-radius: 2px;
+  animation: fall linear infinite;
+}
+
+@keyframes fall {
+  0% {
+    transform: translateY(-60vh) rotate(0) translateX(0);
+    opacity: 1
+  }
+
+  100% {
+    transform: translateY(120vh) rotate(520deg) translateX(80px);
+    opacity: 0.92
+  }
+}
+
+
+.sparkle {
+  position: absolute;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: linear-gradient(180deg, #fff, #ffd166);
+  box-shadow: 0 6px 18px rgba(255, 209, 102, 0.08);
+  filter: blur(0px);
+  animation: pop 1.2s ease-in-out infinite
+}
+
+@keyframes pop {
+  0% {
+    transform: scale(0.66);
+    opacity: .3
+  }
+
+  50% {
+    transform: scale(1.5);
+    opacity: 1
+  }
+
+  100% {
+    transform: scale(0.9);
+    opacity: .4
+  }
+}
+
+.small {
+  display: block;
+  margin-top: 22px;
+  color: #fff;
+  opacity: 0.75;
+  font-size: 14px;
+}
+
+@media (max-width:880px) {
+  .right {
+    width: 220px;
+    height: 220px
+  }
+
+  .title {
+    font-size: 26px
+  }
+}
+
+/* ===========================================================
+  thanke-you
+============================================================= */
+
+#handboy {
+  animation: swing ease-in-out 1.3s infinite alternate;
+  transform-origin: 98% 98%;
+  transform-box: fill-box;
+}
+
+#girllight {
+  animation: swing ease-in-out 1.3s infinite alternate;
+  transform-origin: 0% 97%;
+  transform-box: fill-box;
+}
+
+#hairgirl {
+  animation: swinghair ease-in-out 1.3s infinite alternate;
+  transform-origin: 60% 0%;
+  transform-box: fill-box;
+
+}
+
+#zero {
+  transform-origin: bottom;
+  transform-box: fill-box;
+}
+
+@keyframes swing {
+  0% {
+    transform: rotate(10deg);
+  }
+
+  100% {
+    transform: rotate(-10deg);
+  }
+}
+
+@keyframes swinghair {
+  0% {
+    transform: rotate(6deg);
+  }
+
+  100% {
+    transform: rotate(-6deg);
+  }
+}
+
+.parent {
+  perspective: 800px;
+}
+
+#zero {
+  display: inline-block;
+  transform-style: preserve-3d;
+  backface-visibility: hidden;
+}
+
+@media (max-width: 767px) {
+.about__wrapper{
+  display: flex;
+    flex-direction: column-reverse;
+}
+
+.left {
+    flex: 1 1 360px;
+    min-width: auto;
+    text-align: center;
+}
+.orb {
+    width: 186px;
+    height: 181px;
+}
+.wrap {
+    padding: 8px 17px;
+}
+
+
+
+
+
+}

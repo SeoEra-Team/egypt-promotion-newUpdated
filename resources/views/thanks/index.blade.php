@@ -9,106 +9,66 @@
     ])
 @endsection
 @section('extraStyles')
-
+    <link rel="stylesheet" href="{{ asset('assets/css/free page.css') }}" />
 @endsection
 @section('content')
+    <div class="breadcrumb-area bg-peach position-relative z-1">
+        <!-- <img src="./assets/images/br-bg-shape.png" alt="Shape" class="br-bg-shape position-absolute bottom-0 start-0"> -->
+        <div class="container breadcrumb_text">
+            <!-- <h1 class="section-title style-two">Thank You</h1> -->
+            <ul class="br-menu list-unstyled mb-0">
+                <li><a href="{{ route('home') }}">{{ __('general.home') }}</a></li>
+                <li>
+                    {{ nova_get_setting_translate('thanks_page_title') }}
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="container">
 
+        <div class="wrap mt-5" role="main" aria-live="polite">
+            <div class="hero">
+                <div class="confetti" id="confetti"></div>
+                <div class="left">
+                    <h2 class="title"> {{ nova_get_setting_translate('thanks_page_title') }}</h2>
+                    <p class="subtitle">
+                        {!! nova_get_setting_translate('thanks_page_sub_title') !!}
+                    </p>
 
- <section class="page-hero-banner bg_cover"  style="background-image: url({{ Storage::url(nova_get_setting('about_section_banner')) }});">
-        <div class="text-bg bg_cover"></div>
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12">
-                    <!--=== Page Content ===-->
-                    <div class="page-content">
-                        <h1 class="page-title">
- 
-                        {{ nova_get_setting_translate('thanks_page_name') }}
-                    </h1>    
-                 
-                        <ul class="breadcrumb-link" itemscope="" itemtype="https://schema.org/BreadcrumbList">
-                            <li itemprop="itemListElement" itemscope="" itemtype="https://schema.org/ListItem">
-                                <a itemprop="item" href="{{ route('home') }}">
-                                    <span itemprop="name">
-                                        {{ __('general.home') }}
-                                    </span>
-                                </a>
-                                <meta itemprop="position" content="1">
-                            </li>
-                            <li><i class="fa-solid fa-chevron-right"></i></li>
-                            <li itemprop="itemListElement" itemscope="" itemtype="https://schema.org/ListItem" class="active" aria-current="page">
-                                <span itemprop="name">
-                                   {{ nova_get_setting_translate('thanks_page_name') }}
-                                </span>
-                                <meta itemprop="position" content="2">
-                            </li>
-                        </ul>
+                    <p class="subtitle">
+                        {!! nova_get_setting_translate('thanks_page_description') !!}
+                    </p>
+
+                    <div class="extra-nav  d-none d-sm-block">
+                        <a href="{{ route('home') }}" class="theme-btn">
+                            <i class="fa-solid fa-paper-plane"></i>
+
+                            {{ nova_get_setting_translate('thanks_page_button_title') }}
+                        </a>
 
                     </div>
                 </div>
-            </div>
-        </div>
-    </section>
-    
-    <section class="thanke-you position-relative" style="background-image: url(https://era-app.com/demo2/lmholiday/assets/images/shapes/about-us-pattern-bg.png);">
-        <div class="container">
-            <div class="row">
-                <div class="thanke-you-box">
-                    <div class="checkmark">
-                        <svg viewBox="0 0 52 52">
-                            <path d="M14,27 L22,35 L38,19"></path>
-                        </svg>
+
+                <div class="right" aria-hidden="true">
+                    <div class="orb">
+                        <figure class="check">
+                            <svg viewBox="0 0 120 120" width="120" height="120" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <circle cx="60" cy="60" r="50" stroke="rgba(255,255,255,0.12)"
+                                    stroke-width="6">
+                                </circle>
+                                <path d="M36 62 L52 78 L86 44" stroke="#fff" stroke-width="6" stroke-linecap="round"
+                                    stroke-linejoin="round" fill="none" />
+                            </svg>
+                        </figure>
                     </div>
-                        <h2>{{ nova_get_setting_translate('thanks_page_title') }}</h2>
-                        <p class="footer-text">
-                            {!! nova_get_setting_translate('thanks_page_text') !!}     
-                        </p>
+
+
                 </div>
-
-
             </div>
         </div>
-        <div class="right-side-girl-shape">
-            <img src="https://demo.qzency.com/html/tripfy/preview/assets/image/banner-img/why-choose-us-four-girl.png" alt="">
-        </div>
 
-
-
-    </section>
-    <!--<div class="breadcramb-box w-100 position-relative">-->
-    <!--    <div class="container">-->
-    <!--        <nav aria-label="breadcrumb text-center">-->
-    <!--            <ol class="breadcrumb">-->
-    <!--                <li class="breadcrumb-item"><a href="{{ route('home') }}">{{ __('general.home') }}</a></li>-->
-    <!--                <li class="breadcrumb-item"><a href="#">{{ nova_get_setting_translate('thanks_page_name') }}</a>-->
-    <!--                </li>-->
-    <!--            </ol>-->
-    <!--        </nav>-->
-    <!--    </div>-->
-    <!--</div>-->
-
-
-    <!--<section class="contact-page" style="background-image: url({{asset('assets/images/bg-top.png')}})">-->
-    <!--    <div class="container">-->
-            <!--<div class="row">-->
-            <!--    <div class="category-cover-title">-->
-            <!--        <div class="hero-cap">-->
-            <!--            <h1>{{ nova_get_setting_translate('thanks_page_name') }}</h1>-->
-            <!--        </div>-->
-            <!--    </div>-->
-            <!--    <div class="category-cover-img">-->
-            <!--        <img loading="lazy" src="{{ Storage::url(nova_get_setting('thanks_page_banner')) }}" alt="category-img" />-->
-            <!--    </div>-->
-            <!--</div>-->
-    <!--        <div class="row">-->
-    <!--            <div class="col-md-12 text-center">-->
-    <!--                <h2>{{ nova_get_setting_translate('thanks_page_title') }}</h2>-->
-
-    <!--                    {!! nova_get_setting_translate('thanks_page_text') !!}-->
-    <!--            </div>-->
-    <!--        </div>-->
-    <!--    </div>-->
-    <!--</section>-->
+    </div>
 
 
     @include('layout.partials.faqs')

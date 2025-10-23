@@ -173,56 +173,7 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 
-document.addEventListener('DOMContentLoaded', function () {
-  document.querySelectorAll('.faq-one__content-box').forEach(box => {
-    const accrodions = Array.from(box.querySelectorAll('.accrodion'));
-    if (!accrodions.length) return;
 
-    const initialCount = 4;
-    const moreCount = 5;
-    let visibleCount = initialCount;
-
-    const parentBox = box.closest('.tailor-made') || document;
-    const btnMore = parentBox.querySelector('.show-toggle:nth-of-type(1)');
-    const btnLess = parentBox.querySelector('.show-toggle:nth-of-type(2)');
-
-    btnMore.style.display = 'inline-block';
-    btnLess.style.display = 'none';
-
-    function update() {
-      accrodions.forEach((el, idx) => {
-        if (idx < visibleCount) {
-          el.classList.remove('js-hidden');
-        } else {
-          el.classList.add('js-hidden');
-        }
-      });
-
-      if (visibleCount >= accrodions.length) {
-        btnMore.style.display = 'none';
-        btnLess.style.display = 'inline-block';
-      } else if (visibleCount <= initialCount) {
-        btnMore.style.display = 'inline-block';
-        btnLess.style.display = 'none';
-      } else {
-        btnMore.style.display = 'inline-block';
-        btnLess.style.display = 'inline-block';
-      }
-    }
-
-    btnMore.addEventListener('click', function () {
-      visibleCount = Math.min(accrodions.length, visibleCount + moreCount);
-      update();
-    });
-    btnLess.addEventListener('click', function () {
-      visibleCount = Math.max(initialCount, visibleCount - moreCount);
-      box.scrollIntoView({ behavior: 'smooth', block: 'start' });
-      update();
-    });
-
-    update();
-  });
-});
 
 /* =============================== Start FAQ  =============================== */
 
@@ -319,13 +270,6 @@ flatpickr("#Pickup", {
 
 /* =============================== showMore-Btn text =============================== */
 
-const desc = document.querySelector('.descc');
-const btn = document.querySelector('.showMore-Btn');
-
-btn.addEventListener('click', () => {
-  desc.classList.toggle('expanded');
-  btn.textContent = desc.classList.contains('expanded') ? 'Show less' : 'Show more';
-});
 
 
 /* =============================== showMore-Btn text  =============================== */

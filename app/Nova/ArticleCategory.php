@@ -8,6 +8,7 @@ use App\Helpers\Nova\FieldsHelper;
 use Benjaminhirsch\NovaSlugField\TextWithSlug;
 use Davidpiesse\NovaToggle\Toggle;
 use Illuminate\Http\Request;
+use Laravel\Nova\Fields\Date;
 use Laravel\Nova\Fields\ID;
 use Laravel\Nova\Fields\Text;
 use Laravel\Nova\Fields\Textarea;
@@ -61,10 +62,14 @@ class ArticleCategory extends Resource
                 ->rules(RulesHelper::REQUIRED_STRING_VALIDATION)
                 ->translatable()
                 ->hideFromIndex(),
+                
+            Text::make(__('Author Name'), 'author_name')
+                ->rules(RulesHelper::NULLABLE_TEXT_VALIDATION)
+                ->translatable()
+                ->hideFromIndex(),
 
-            Text::make(__('author blog'), 'author_name')
-                ->rules(RulesHelper::REQUIRED_STRING_VALIDATION)
-                ->translatable(),
+            Date::make(__('Date'), 'date')
+                ->rules(RulesHelper::NULLABLE_DATE_VALIDATION)->hideFromIndex(),
 
             Textarea::make(__('Short Description'), 'short_description')
                 ->rules(RulesHelper::NULLABLE_TEXT_VALIDATION)

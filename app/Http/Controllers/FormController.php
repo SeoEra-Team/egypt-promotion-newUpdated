@@ -88,7 +88,8 @@ class FormController extends Controller
     public function saveContactUs(HttpRequest $request)
     {
         $data = $request->except('_token');
-        $data['phone_number'] = "+" . $data['code'] . "" . $data['phone_number'];
+        // dd($data);
+        $data['phone_number'] = "+" . $data['code'] . "" . $data['phone'];
         $contact = Contact::create($data);
         try {
             $contactMails = Email::getReceiversMails('contact');

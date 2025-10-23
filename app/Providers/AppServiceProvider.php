@@ -43,6 +43,9 @@ class AppServiceProvider extends ServiceProvider
             view()->composer('home.partials.second_sub_categories_section', SecondSubCategoryComposer::class);
             view()->composer('home.partials.first_tour_section', FirstTourComposer::class);
             view()->composer('home.partials.second_tour_section', SecondTourComposer::class);
+            view()->composer('home.partials.articles_section', BlogComposer::class);
+            view()->composer('layout.partials.faqs', FAQComposer::class);
+            view()->composer('layout.partials.partners', PartenerComposer::class);
             
             
         } catch (\Exception $exception) {

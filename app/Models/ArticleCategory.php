@@ -23,7 +23,9 @@ class ArticleCategory extends Model implements HasMedia
     protected $translatable = ['name', 'heading', 'short_description', 'description',
         'meta_title', 'meta_keywords', 'meta_description', 'slug',
         'author_name'];
-
+    protected $casts = [
+        'date'              => 'date',
+    ];
     protected $cascadeDeletes = ['articles'];
 
     public function registerMediaCollections(): void

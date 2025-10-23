@@ -88,7 +88,31 @@
         </div>
 
     </div>
-@elseif($style == 'tags')
+@elseif($style == 'home_style')
+    <div class="blog-card one mb-3">
+        <div class="blog-card-img-wrap blog--card">
+            <img src="{{ $article->getFirstMediaUrlOrDefault(MediaHelper::ARTICLE_MEDIA_PATH, 'webp')['url'] }}"
+                alt="">
+            </a>
+
+        </div>
+        <div class="blog-card-content blog__card">
+
+            <h5>
+                <a href="#">
+                    {{ $article->name }}
+                </a>
+            </h5>
+
+
+            <div class="blog-date">
+                <i class="fa-solid fa-calendar-days"></i>
+                <span> {{ $article->date->format('d M Y') }}</span>
+            </div>
+
+        </div>
+
+    </div>
 @else
     <div class="blog-card one mb-3 w-100">
         <div class="blog-card-img-wrap blog--card w-100">

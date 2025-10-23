@@ -41,5 +41,22 @@ Route::group(
         Route::post('/tailorMade/store', [FormController::class, 'saveTailorMade'])->name('tailorMade.store');
         Route::get('/contact-us', [FormController::class, 'contactUs'])->name('contactus');
         Route::post('/contact-us/store', [FormController::class, 'saveContactUs'])->name('contactus.store');
+
+
+
+        Route::group(['as' => 'tour.'], function () {
+
+            Route::post('/tour/reservation/{id}', [TourController::class, 'reservation'])->name('reservation');
+
+            Route::get('{categorySlug}/{subCategorySlug}/{tourSlug}', [TourController::class, 'show'])
+                ->where('categorySlug', '^(?!admin_panel|nova-api|nova-vendor).*$')->name('show');
+
+            Route::get('{categorySlug}/{subCategorySlug}', [TourController::class, 'tours'])
+                ->where('categorySlug', '^(?!admin_panel|nova-api|nova-vendor).*$')->name('index');
+
+
+            Route::get('{categorySlug}', [TourController::class, 'getSubCategories'])
+                ->where('categorySlug', '^(?!admin_panel|nova-api|nova-vendor).*$')->name('category');
+        });
     }
 );

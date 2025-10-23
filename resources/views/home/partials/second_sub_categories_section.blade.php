@@ -45,30 +45,10 @@
                             <div class="row ">
                                 @foreach ($subCategory->tours->take(6) as $tour)
                                     <div class="col-lg-4 col-sm-6">
-                                        <div class="blog-card one mb-3">
-                                            <div class="blog-card-img-wrap blog--card">
-                                                <a href="./tour-details.html" class="card-img card__img">
-                                                    <img src="{{  $tour->getFirstMediaUrlOrDefault(MediaHelper::TOUR_MEDIA_PATH, 'webp')['url']}}" alt="">
-                                                </a>
-
-                                            </div>
-                                            <div class="blog-card-content blog__card">
-
-                                                <h5><a href="./tour-details.html">
-                                                        {{ $tour->name }}
-                                                    </a></h5>
-                                                <div class="blog-date">
-
-                                                    <span class="price--main--tour">
-                                                        <i class="fa-solid fa-money-bill-1-wave"></i>
-                                                        {{ App\Helpers\Classes\Currency::display($tour->final_price) }}
-                                                        <strong> {{ __('home.start_from') }} </strong>
-                                                    </span>
-                                                </div>
-
-                                            </div>
-
-                                        </div>
+                                        @include('layout.partials.tour_box', [
+                                            'style' => 'third',
+                                            'tour'  => $tour
+                                        ])
                                     </div>
                                 @endforeach
 

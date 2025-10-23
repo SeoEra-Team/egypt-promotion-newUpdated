@@ -26,7 +26,8 @@ class Article extends Model implements HasMedia
 
 
     protected $casts = [
-        'travel_packages'   => 'array'
+        'article_content'   => 'array',
+        'date'              => 'date',
     ];
 
     public function registerMediaCollections(): void

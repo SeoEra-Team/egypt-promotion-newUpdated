@@ -28,7 +28,6 @@
 
     @include('layout.partials.assets.script-assets')
 
-    @include('layout.partials.assets.script-master')
 
 
     <div id="scroll-top" class="scroll-top">
@@ -36,6 +35,7 @@
     </div>
 
     @yield('extraScripts')
+    @yield('extraScriptsFaq')
     <script type="text/javascript">
         $('#currencyId').on('change', function(e) {
             $('#switchCurrency').submit();

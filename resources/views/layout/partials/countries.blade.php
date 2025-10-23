@@ -1,5 +1,5 @@
 <option value="" selected
-        disabled>{{ __('tailorMade.nationality') }}</option>
+        disabled>{{ __('home.nationality') }}</option>
 <option value="Afghanistan">Afghanistan</option>
 <option value="Aland Islands">Aland Islands</option>
 <option value="Albania">Albania</option>

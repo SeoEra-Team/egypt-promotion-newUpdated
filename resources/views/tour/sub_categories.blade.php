@@ -10,63 +10,84 @@
 @endsection
 
 @section('extraStyles')
-    
 @endsection
 
 @section('content')
-    <section class="page-hero-banner bg_cover"
-        style="background-image: url({{ $category->getFirstMediaUrlOrDefault(MediaHelper::CATEGORY_BANNER_MEDIA_PATH, 'webp')['url'] }});">
-        <div class="text-bg bg_cover"></div>
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12">
-                    <!--=== Page Content ===-->
-                    <div class="page-content">
-                        <h1 class="page-title">{{ $category->name }}</h1>
-                        <ul class="breadcrumb-link">
-                            <li><a href="{{ route('home') }}">{{ __('general.home') }}</a></li>
-                            <li><i class="fa-solid fa-chevron-right"></i></li>
-                            <li>{{ $category->heading }}</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
+    <div class="breadcrumb-area bg-peach position-relative z-1">
+        <!-- <img src="./assets/images/br-bg-shape.png" alt="Shape" class="br-bg-shape position-absolute bottom-0 start-0"> -->
+        <div class="container breadcrumb_text">
+            <!-- <h1 class="section-title style-two">Egypt Excursions</h1> -->
+            <ul class="br-menu list-unstyled mb-0">
+                <li><a href="{{ route('home') }}">{{ __('general.home') }}</a></li>
+                <li>
+                    {{ $category->heading }}
+                </li>
+            </ul>
         </div>
-    </section>
-    <div class=" padtobo-40" style="background-image: url(./assets/images/adjustment-bg-quck.png)">
+    </div>
+
+
+    <section class="Recommend-tours collection-banner  ">
         <div class="container">
+
             <div class="row justify-content-center">
-                <div class="section-title text-center ">
+                <div class="section-title text-center mb-3">
                     <div class="col-12">
                         <span class="section-title-span">
-
                             {{ $category->name }}
                         </span>
                         <h2>
-                            {{ $category->menu_title }}
+                            {{ $category->title ?? '' }}
                         </h2>
-                        <div class="desc ">
+                        <div class="descc mb-3">
                             <p>
-                                {!!$category->description !!}
+                                {!! $category->description !!}
                             </p>
+                        </div>
+                        <div class="extra-nav d-flex justify-content-center">
+                            <button class="theme-btn showMore-Btn">
+                                {{ __('category.show_more') }}
+                            </button>
 
                         </div>
                     </div>
+
                 </div>
             </div>
-            <div class="blogs-wrapper">
 
-                <div class="row ">
-                    @foreach ($category->children->where('status', 1) as $subCategory)
-                        <div class="col-md-3 mb-2  ">
-                            @include('layout.partials.sub_category_box', ['subCategory' => $subCategory])
-                        </div>
-                    @endforeach
-                </div>
 
+            <div class="row">
+                @foreach ($category->children as $subCategory)
+                    <div class="col-lg-4">
+                        <a href="#">
+                            <div class="collection-card mb-2">
+                                <div class="thumb">
+                                    <a href="#">
+                                        <img src="{{ $subCategory->getFirstMediaUrlOrDefault(MediaHelper::SUB_CATEGORY_MEDIA_PATH, 'webp')['url'] }}" alt="collection-img"></a>
+                                    <div class="content">
+                                        <h3>
+                                            {{ $subCategory->name }}
+                                        </h3>
+                                        <p>
+                                            {{ Str::limit($subCategory->short_description, 100) }}
+                                        </p>
+                                        <a href="#" class="btn-effect"><span>
+                                            {{ __('category.explore') }}
+                                        </span>
+                                            <i class="fa-solid fa-arrow-right"></i>
+                                        </a>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                @endforeach
             </div>
         </div>
-    </div>
+    </section>
+
+
 
     @include('layout.partials.faqs', ['faqs' => $faqs])
 @endsection

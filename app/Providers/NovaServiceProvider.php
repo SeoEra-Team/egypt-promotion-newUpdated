@@ -4,7 +4,11 @@ namespace App\Providers;
 
 use App\Helpers\Constants\RulesHelper;
 use App\Helpers\Nova\FieldsHelper;
+use App\Nova\Article;
+use App\Nova\ArticleCategory;
 use App\Nova\Category;
+use App\Nova\FaqQuestion;
+use App\Nova\Partner;
 use App\Nova\SubCategory;
 use App\Nova\Tour;
 use Bernhardh\NovaTranslationEditor\NovaTranslationEditor;
@@ -157,6 +161,7 @@ class NovaServiceProvider extends NovaApplicationServiceProvider
     public function tools(): array
     {
         return [
+            
             new CollapsibleResourceManager([
                 'navigation' => [
                     
@@ -169,10 +174,27 @@ class NovaServiceProvider extends NovaApplicationServiceProvider
                             Tour::class,
                         ]
                     ])->icon('<i class="fa fa-money"></i>'),
-                    
-                    
+                    TopLevelResource::make([
+                        'label' => 'Blog',
+                        'expanded' => false,
+                        'resources' => [
+                            ArticleCategory::class,
+                            Article::class,
+                        ]
+                    ])->icon('<i class="fa fa-money"></i>'),
+
+                    TopLevelResource::make([
+                        'label' => ' Management',
+                        'expanded' => false,
+                        'resources' => [
+                            FaqQuestion::class,
+                            Partner::class,
+                        ]
+                    ])->icon('<i class="fa fa-money"></i>'),
+
                 ]
             ]),
+            
             NovaLanguageEditor::make()
                 ->canSee(fn() => auth()->user()->can('manage languages')),
             NovaTranslationEditor::make()

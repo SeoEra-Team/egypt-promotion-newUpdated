@@ -10,8 +10,8 @@ class BlogComposer
     public function compose(View $view)
     {
         $data = [];
-        $data['blogs'] = Article::where('status', true)->take(4)->get();
-        
+        $data['articles'] = Article::where('status', true)->where('home', true)->take(5)->get();
+        $data['FirstArticle'] = $data['articles']->first();
         $view->with($data);
     }
 }
