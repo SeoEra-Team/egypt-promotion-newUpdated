@@ -1,4 +1,4 @@
-@if (count($firstTours) > 0)
+@if ( isset($firstTours) && count($firstTours) > 0)
     <section class="blogs Offers hotel-section mt-5">
         <div class="container">
             <div class="row justify-content-center">

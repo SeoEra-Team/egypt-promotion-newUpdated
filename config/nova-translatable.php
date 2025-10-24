@@ -1,7 +1,6 @@
 <?php return [
   'locales' => [
     'en' => 'en',
-    'it' => 'it',
   ],
   'prioritize_nova_locale' => true,
   'display_type' => 'row',

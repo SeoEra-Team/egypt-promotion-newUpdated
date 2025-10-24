@@ -1,6 +1,6 @@
 @include('home.partials.book_amazing_section')
 
-
+@if (isset($faqs) && count($faqs) > 0 || isset($generalFAQs) && count($generalFAQs) > 0)
 <div class="faq-section mt-5 " style="background-image: url(assets/images/travel-bg.jpg);background-color: #e4e4e4;">
     <div class="container">
         <div class="row justify-content-center">
@@ -214,12 +214,14 @@
         </div>
     </div>
 </div>
+@endif
+@if(isset($faqs) && count($faqs) > 0)
 @section('schema')
     <script type="application/ld+json">
     {!! $jsonLd !!}
 </script>
 @endsection
-
+@endif
 @section('extraScriptsFaq')
     <script>
         const desc = document.querySelector('.descc');

@@ -1,4 +1,4 @@
-@if (count($subCategories) > 0)
+@if ( isset($subCategories) && count($subCategories) > 0)
 
     <section class="Recommend-tours collection-banner  ">
         <div class="container">

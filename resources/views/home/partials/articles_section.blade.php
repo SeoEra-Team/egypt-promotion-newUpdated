@@ -1,4 +1,4 @@
-@if (count($articles) > 0)
+@if (isset($articles) && count($articles) > 0)
     <div class="blog--section mt-5">
         <div class="container">
 

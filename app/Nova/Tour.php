@@ -89,7 +89,7 @@ class Tour extends Resource
                     ->hideFromIndex()->translatable(),
 
                 FieldsHelper::image(true, MediaHelper::TOUR_MEDIA_PATH, 'Image', true),
-                FieldsHelper::image(true, MediaHelper::TOUR_BANNER_MEDIA_PATH, 'Banner', true),
+                FieldsHelper::image(false, MediaHelper::TOUR_BANNER_MEDIA_PATH, 'Banner', true),
                 FieldsHelper::image(true, MediaHelper::TOUR_GALLERY_MEDIA_PATH, 'Gallery', false),
 
                 Select::make(__('Type'), 'type')

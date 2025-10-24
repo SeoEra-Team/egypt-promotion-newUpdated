@@ -6,12 +6,6 @@
       'native' => 'en',
       'regional' => 'en_GB',
     ],
-    'it' => [
-      'name' => 'it',
-      'script' => 'it',
-      'native' => 'it',
-      'regional' => 'it',
-    ],
   ],
   'useAcceptLanguageHeader' => true,
   'hideDefaultLocaleInURL' => true,

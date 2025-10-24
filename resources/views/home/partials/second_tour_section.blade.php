@@ -1,5 +1,5 @@
 
-@if (count($secondTours) > 0)
+@if (isset($secondTours) && count($secondTours) > 0)
     
 <div class="w-100 travel-tour-second travel-tour_second mt-5 hotel-section ">
     <div class="container">

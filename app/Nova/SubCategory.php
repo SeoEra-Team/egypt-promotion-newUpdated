@@ -83,7 +83,7 @@ class SubCategory extends Resource
 
 
             FieldsHelper::image(true, MediaHelper::SUB_CATEGORY_MEDIA_PATH, 'Image', true),
-            FieldsHelper::image(true, MediaHelper::SUB_CATEGORY_BANNER_MEDIA_PATH, 'Banner', true),
+            FieldsHelper::image(false, MediaHelper::SUB_CATEGORY_BANNER_MEDIA_PATH, 'Banner', true),
             FieldsHelper::image(true, MediaHelper::SUB_CATEGORY_SUBIMG_MEDIA_PATH, 'icon', true),
 
             Toggle::make(__('Status'), 'status')

@@ -1,4 +1,4 @@
-@if (count($subCategories) > 0)
+@if ( isset($subCategories) && count($subCategories) > 0)
     <section class="tab-section tab-section_tour mt-5">
         <div class="container">
             <div class="row justify-content-center">
