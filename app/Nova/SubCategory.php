@@ -73,6 +73,10 @@ class SubCategory extends Resource
             Text::make(__('Heading'), 'heading')
                 ->rules(RulesHelper::NULLABLE_STRING_VALIDATION)
                 ->translatable()->hideFromIndex(),
+
+            Text::make(__('Title'), 'title')
+                ->rules(RulesHelper::NULLABLE_STRING_VALIDATION)
+                ->translatable()->hideFromIndex(),
                 
             Textarea::make(__('Short Description'), 'short_description')
                 ->rules(RulesHelper::NULLABLE_TEXT_VALIDATION)

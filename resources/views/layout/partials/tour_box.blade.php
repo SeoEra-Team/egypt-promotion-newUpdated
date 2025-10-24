@@ -1,13 +1,15 @@
 @if (isset($style) && $style == 'first')
     <div class="tour-card">
-        <a href="./tour-details.html">
+        <a
+            href="{{ route('tour.show', ['categorySlug' => $tour->category->category->slug, 'subCategorySlug' => $tour->category->slug, 'tourSlug' => $tour->slug]) }}">
             <h3 class="card-title">
                 {{ $tour->name }}
             </h3>
         </a>
         <div class="tour-img hotel-card">
             <div class="hotel-img">
-                <a href="./tour-details.html">
+                <a
+                    href="{{ route('tour.show', ['categorySlug' => $tour->category->category->slug, 'subCategorySlug' => $tour->category->slug, 'tourSlug' => $tour->slug]) }}">
 
                     <img src="{{ $tour->img_first }}" alt="Cairo">
                     <img src="{{ $tour->getFirstMediaUrlOrDefault(MediaHelper::TOUR_MEDIA_PATH, 'webp')['url'] }}"
@@ -37,7 +39,8 @@
                         {{ App\Helpers\Classes\Currency::display($tour->final_price) }}
                     </span>
                 </div>
-                <a href="./tour-details.html">
+                <a
+                    href="{{ route('tour.show', ['categorySlug' => $tour->category->category->slug, 'subCategorySlug' => $tour->category->slug, 'tourSlug' => $tour->slug]) }}">
                     {{ __('home.book_trip') }}
 
                     <span>
@@ -57,7 +60,8 @@
     <div class="hotel-card">
 
         <div class="hotel-img">
-            <a href="./tour-details.html">
+            <a
+                href="{{ route('tour.show', ['categorySlug' => $tour->category->category->slug, 'subCategorySlug' => $tour->category->slug, 'tourSlug' => $tour->slug]) }}">
                 <img src="{{ $tour->img_first }}" alt="Cairo">
                 <img src="{{ $tour->getFirstMediaUrlOrDefault(MediaHelper::TOUR_MEDIA_PATH, 'webp')['url'] }}"
                     alt="Cairo">
@@ -65,7 +69,8 @@
 
         </div>
         <div class="hotel-details">
-            <div class="hotel-title"> <a href="./tour-details.html">
+            <div class="hotel-title"> <a
+                    href="{{ route('tour.show', ['categorySlug' => $tour->category->category->slug, 'subCategorySlug' => $tour->category->slug, 'tourSlug' => $tour->slug]) }}">
                     {{ $tour->name }}
                 </a>
             </div>
@@ -75,7 +80,7 @@
                 </div>
                 <div class="hotel-level">
                     <i class="fas fa-map-marker-alt" aria-hidden="true"></i>
-                    <span> Cairo, Aswan, Luxor, Alexandria, Siwa</span>
+                    <span> {{ $tour->location }}</span>
                 </div>
             </div>
             <p>
@@ -99,7 +104,8 @@
 @elseif (isset($style) && $style == 'third')
     <div class="blog-card one mb-3">
         <div class="blog-card-img-wrap blog--card">
-            <a href="./tour-details.html" class="card-img card__img">
+            <a href="{{ route('tour.show', ['categorySlug' => $tour->category->category->slug, 'subCategorySlug' => $tour->category->slug, 'tourSlug' => $tour->slug]) }}"
+                class="card-img card__img">
                 <img src="{{ $tour->getFirstMediaUrlOrDefault(MediaHelper::TOUR_MEDIA_PATH, 'webp')['url'] }}"
                     alt="">
             </a>
@@ -107,7 +113,8 @@
         </div>
         <div class="blog-card-content blog__card">
 
-            <h5><a href="./tour-details.html">
+            <h5><a
+                    href="{{ route('tour.show', ['categorySlug' => $tour->category->category->slug, 'subCategorySlug' => $tour->category->slug, 'tourSlug' => $tour->slug]) }}">
                     {{ $tour->name }}
                 </a></h5>
             <div class="blog-date">
@@ -122,4 +129,47 @@
         </div>
 
     </div>
+@elseif (isset($style) && $style == 'card_category_tour')
+    <div class="hotel-card mb-3">
+
+        <div class="hotel-img">
+
+            <a
+                href="{{ route('tour.show', ['categorySlug' => $tour->category->category->slug, 'subCategorySlug' => $tour->category->slug, 'tourSlug' => $tour->slug]) }}">
+                <img src="{{ $tour->img_first }}" alt="Cairo">
+                <img src="{{ $tour->getFirstMediaUrlOrDefault(MediaHelper::TOUR_MEDIA_PATH, 'webp')['url'] }}"
+                    alt="Cairo">
+            </a>
+        </div>
+        <div class="hotel-details">
+            <div class="hotel-title"> <a
+                    href="{{ route('tour.show', ['categorySlug' => $tour->category->category->slug, 'subCategorySlug' => $tour->category->slug, 'tourSlug' => $tour->slug]) }}">
+                    {{ $tour->name }}
+                </a>
+            </div>
+            <div class="hotel-meta">
+                <div class="hotel-star">
+                    <span><i class="fa-regular fa-clock"></i> {{ $tour->duration }}</span>
+                </div>
+                <div class="hotel-level">
+                    <i class="fas fa-map-marker-alt" aria-hidden="true"></i>
+                    <span> {{ $tour->location }}</span>
+                </div>
+            </div>
+            <p>
+                {{ $tour->short_description }}
+            </p>
+            <div class="tour-card-footer d-flex align-items-center justify-content-between">
+                <div class="tour-price position-relative">
+                    <span class="tour-price-title">{{ __('home.from') }} :</span>
+
+                    <span class="price-value">
+                        {{ App\Helpers\Classes\Currency::display($tour->final_price) }}
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+@elseif (isset($style) && $style == 'show_tour')
+    
 @endif

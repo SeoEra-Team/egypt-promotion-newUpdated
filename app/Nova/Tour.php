@@ -408,8 +408,8 @@ class Tour extends Resource
                 ])->dependsOn('type', 'nile-cruise'),
             ]),
 
-            // NestedForm::make(__('Itineraries'), 'itineraries', Itinerary::class),
-            // HasMany::make(__('Itineraries'), 'itineraries', Itinerary::class),
+            NestedForm::make(__('Itineraries'), 'itineraries', Itinerary::class),
+            HasMany::make(__('Itineraries'), 'itineraries', Itinerary::class),
 
 
             new Panel('Other Information', [
@@ -425,7 +425,7 @@ class Tour extends Resource
                     ->rules(RulesHelper::NULLABLE_MID_STRING_VALIDATION)
                     ->hideFromIndex()->translatable(),
 
-                Text::make(__('Live Tour Guide'), 'live_tour_guide')
+                Text::make(__('Tour Runs'), 'tour_runs')
                     ->rules(RulesHelper::NULLABLE_MID_STRING_VALIDATION)
                     ->hideFromIndex()->translatable(),
 

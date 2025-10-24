@@ -41,10 +41,7 @@ class TourController extends Controller
         $faqs = $this->getRelatedFaqsData($subCategory->id, 'App\Models\SubCategory');
         $cities = City::all();
         $destinations = Destination::all();
-        $travelStyles = TravelStyle::where('status', 1)->get();
-        // dd($travelStyles);
-        $prices = collect($subCategory->tours)->pluck('price')->unique()->toArray();
-        return view('tour.tours', compact('subCategory', 'faqs', 'cities', 'destinations', 'prices', 'tours', 'travelStyles'));
+        return view('tour.tours', compact('subCategory', 'faqs', 'cities', 'destinations','tours'));
     }
 
 

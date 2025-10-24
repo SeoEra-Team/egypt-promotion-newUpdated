@@ -40,9 +40,7 @@
                             {{ $category->title ?? '' }}
                         </h2>
                         <div class="descc mb-3">
-                            <p>
-                                {!! $category->description !!}
-                            </p>
+                            {!! $category->description !!}
                         </div>
                         <div class="extra-nav d-flex justify-content-center">
                             <button class="theme-btn showMore-Btn">
@@ -59,11 +57,14 @@
             <div class="row">
                 @foreach ($category->children as $subCategory)
                     <div class="col-lg-4">
-                        <a href="#">
+                        <a
+                            href="{{ route('tour.index', ['categorySlug' => $category->slug, 'subCategorySlug' => $subCategory->slug]) }}">
                             <div class="collection-card mb-2">
                                 <div class="thumb">
-                                    <a href="#">
-                                        <img src="{{ $subCategory->getFirstMediaUrlOrDefault(MediaHelper::SUB_CATEGORY_MEDIA_PATH, 'webp')['url'] }}" alt="collection-img"></a>
+                                    <a
+                                        href="{{ route('tour.index', ['categorySlug' => $category->slug, 'subCategorySlug' => $subCategory->slug]) }}">
+                                        <img src="{{ $subCategory->getFirstMediaUrlOrDefault(MediaHelper::SUB_CATEGORY_MEDIA_PATH, 'webp')['url'] }}"
+                                            alt="collection-img"></a>
                                     <div class="content">
                                         <h3>
                                             {{ $subCategory->name }}
@@ -71,9 +72,10 @@
                                         <p>
                                             {{ Str::limit($subCategory->short_description, 100) }}
                                         </p>
-                                        <a href="#" class="btn-effect"><span>
-                                            {{ __('category.explore') }}
-                                        </span>
+                                        <a href="{{ route('tour.index', ['categorySlug' => $category->slug, 'subCategorySlug' => $subCategory->slug]) }}"
+                                            class="btn-effect"><span>
+                                                {{ __('category.explore') }}
+                                            </span>
                                             <i class="fa-solid fa-arrow-right"></i>
                                         </a>
 

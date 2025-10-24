@@ -38,8 +38,8 @@ class Tour extends Model implements HasMedia, Sortable
         'tour_type','tour_availability',
         'meta_title', 'meta_keywords', 
         'meta_description',
-        'live_tour_guide',
         'slug',
+        'tour_runs',
     ];
 
     protected $casts = [

@@ -25,7 +25,7 @@ class SubCategory extends Model implements HasMedia, Sortable
     use HasFactory, CheckSlug,CheckLang ,InteractsWithMedia, SortableTrait, HasTranslations, SoftDeletes, CascadeSoftDeletes, DefaultImage;
 
     protected $translatable = ['name', 'menu_title', 'heading', 'short_description', 'description',
-        'meta_title',  'slug', 'meta_keywords', 'meta_description'];
+        'meta_title',  'slug', 'meta_keywords', 'meta_description', 'title'];
 
     protected $cascadeDeletes = ['tours'];
 
